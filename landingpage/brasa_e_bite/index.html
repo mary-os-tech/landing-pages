@@ -1,0 +1,3769 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Brasa & Bite — O Hambúrguer que Hits Different">
+<meta property="og:description" content="Blend exclusivo, pão brioche artesanal e entrega rápida. Peça agora.">
+<meta property="og:image" content="img/og-preview.jpg">
+<meta property="og:url" content="https://brasaebite.com.br">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Brasa & Bite — O Hambúrguer que Hits Different">
+<meta name="twitter:description" content="Blend exclusivo, pão brioche artesanal e entrega rápida.">
+<meta name="twitter:image" content="img/og-preview.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================
+       1. VARIÁVEIS GLOBAIS
+       ============================================ */
+    :root {
+      --cor-fundo:        #1A1A1A;
+      --cor-cta:          #FF5100;
+      --cor-cta-hover:    #E04600;
+      --cor-acento:       #F5B400;
+      --cor-texto:        #F8D19B;
+      --cor-card:         #2C2C2C;
+      --cor-texto-suave:  #A89B8E;
+      --cor-borda:        rgba(255, 255, 255, 0.07);
+      --cor-branco:       #FFFFFF;
+
+      --fonte-titulo: 'Bebas Neue', sans-serif;
+      --fonte-corpo:  'Inter', sans-serif;
+
+      --transicao:      0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --sombra-card:    0 12px 32px rgba(0, 0, 0, 0.45);
+      --sombra-cta:     0 10px 28px rgba(255, 81, 0, 0.35);
+      --radius:         18px;
+      --radius-sm:      10px;
+      --container-max:  1200px;
+    }
+
+    /* ============================================
+       2. RESET & BASE
+       ============================================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background-color: var(--cor-fundo);
+      color: var(--cor-texto);
+      font-family: var(--fonte-corpo);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a   { text-decoration: none; color: inherit; }
+    ul  { list-style: none; }
+
+    h1, h2, h3 {
+      font-family: var(--fonte-titulo);
+      font-weight: 400;
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ============================================
+       3. NAVBAR FIXA
+       ============================================ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(26, 26, 26, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--cor-borda);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      height: 78px;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--fonte-titulo);
+      font-size: 1.75rem;
+      letter-spacing: 0.06em;
+      color: var(--cor-branco);
+      white-space: nowrap;
+      transition: color var(--transicao);
+    }
+    .logo .flame {
+      font-size: 1.5rem;
+      filter: drop-shadow(0 0 10px rgba(255, 81, 0, 0.7));
+      animation: pulseFlame 2.4s ease-in-out infinite;
+    }
+    .logo:hover { color: var(--cor-acento); }
+
+    @keyframes pulseFlame {
+      0%, 100% { transform: scale(1) rotate(-2deg); }
+      50%      { transform: scale(1.12) rotate(2deg); }
+    }
+
+    /* Links de navegação */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+      margin-left: auto;
+    }
+
+    .nav-links a {
+      position: relative;
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--cor-texto-suave);
+      padding: 0.4rem 0;
+      transition: color var(--transicao);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--cor-cta);
+      transition: width var(--transicao);
+    }
+
+    .nav-links a:hover { color: var(--cor-branco); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* Botão CTA principal */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--cor-cta);
+      color: var(--cor-branco);
+      font-family: var(--fonte-titulo);
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      padding: 0.7rem 1.5rem;
+      border-radius: 999px;
+      white-space: nowrap;
+      box-shadow: var(--sombra-cta);
+      transition: transform var(--transicao), background var(--transicao), box-shadow var(--transicao);
+    }
+
+    .btn-cta:hover {
+      background: var(--cor-cta-hover);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 14px 34px rgba(255, 81, 0, 0.5);
+    }
+    .btn-cta:active { transform: translateY(-1px) scale(0.99); }
+
+    /* ============================================
+       4. MENU MOBILE (checkbox hack)
+       ============================================ */
+    .menu-toggle { display: none; }
+
+    .menu-icon {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 42px;
+      height: 42px;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      transition: background var(--transicao);
+    }
+    .menu-icon:hover { background: rgba(255, 255, 255, 0.06); }
+
+    .menu-icon span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: var(--cor-branco);
+      border-radius: 2px;
+      transition: transform var(--transicao), opacity var(--transicao);
+    }
+
+    .menu-toggle:checked + .menu-icon span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .menu-toggle:checked + .menu-icon span:nth-child(2) { opacity: 0; }
+    .menu-toggle:checked + .menu-icon span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* ============================================
+       5. SEÇÃO HERO
+       ============================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 0 5rem;
+      overflow: hidden;
+    }
+
+    /* Foto full-width do burger */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=2000&q=80');
+      background-size: cover;
+      background-position: center right;
+      transform: scale(1.02);
+      animation: slowZoom 22s ease-in-out infinite alternate;
+    }
+
+    @keyframes slowZoom {
+      from { transform: scale(1.02); }
+      to   { transform: scale(1.12); }
+    }
+
+    /* Overlay em gradiente para legibilidade */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg,
+          rgba(26, 26, 26, 0.98) 0%,
+          rgba(26, 26, 26, 0.92) 35%,
+          rgba(26, 26, 26, 0.55) 70%,
+          rgba(26, 26, 26, 0.75) 100%),
+        linear-gradient(180deg,
+          rgba(26, 26, 26, 0.9) 0%,
+          transparent 25%,
+          transparent 65%,
+          rgba(26, 26, 26, 1) 100%);
+    }
+
+    .hero-container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .hero-content {
+      max-width: 640px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(245, 180, 0, 0.12);
+      border: 1px solid rgba(245, 180, 0, 0.35);
+      color: var(--cor-acento);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      color: var(--cor-branco);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 .destaque {
+      color: var(--cor-cta);
+      text-shadow: 0 0 50px rgba(255, 81, 0, 0.45);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      color: var(--cor-texto-suave);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-sub strong { color: var(--cor-texto); font-weight: 600; }
+
+    /* Ações do Hero */
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: var(--cor-cta);
+      color: var(--cor-branco);
+      font-family: var(--fonte-titulo);
+      font-size: 1.35rem;
+      letter-spacing: 0.08em;
+      padding: 1.05rem 2.6rem;
+      border-radius: 999px;
+      box-shadow: var(--sombra-cta);
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transicao), box-shadow var(--transicao), background var(--transicao);
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--cor-cta-hover);
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 18px 44px rgba(255, 81, 0, 0.55);
+    }
+    .btn-primary:hover::before { left: 100%; }
+    .btn-primary:active { transform: translateY(-1px) scale(1); }
+
+    .btn-ghost {
+      position: relative;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--cor-texto);
+      padding-bottom: 4px;
+      transition: color var(--transicao);
+    }
+    .btn-ghost::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 100%; height: 1px;
+      background: var(--cor-texto);
+      transform-origin: right;
+      transform: scaleX(1);
+      transition: transform var(--transicao), background var(--transicao);
+    }
+    .btn-ghost:hover { color: var(--cor-acento); }
+    .btn-ghost:hover::after { background: var(--cor-acento); transform: scaleX(0.6); }
+
+    /* Card Flutuante */
+    .hero-card {
+      position: absolute;
+      right: 1.5rem;
+      bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(44, 44, 44, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--cor-borda);
+      border-radius: var(--radius);
+      padding: 0.9rem 1.4rem 0.9rem 0.9rem;
+      box-shadow: var(--sombra-card);
+      animation: floatY 4.5s ease-in-out infinite;
+      transition: transform var(--transicao), border-color var(--transicao);
+    }
+
+    .hero-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      border-color: rgba(245, 180, 0, 0.4);
+    }
+
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-12px); }
+    }
+
+    .hero-card img {
+      width: 62px;
+      height: 62px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .hero-card-info { display: flex; flex-direction: column; gap: 2px; }
+
+    .hero-card-info .nome {
+      font-family: var(--fonte-titulo);
+      font-size: 1.2rem;
+      letter-spacing: 0.05em;
+      color: var(--cor-branco);
+      line-height: 1;
+    }
+
+    .hero-card-info .preco {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--cor-cta);
+    }
+
+    .hero-card-info .rating {
+      font-size: 0.75rem;
+      color: var(--cor-acento);
+      letter-spacing: 0.04em;
+    }
+
+    /* ============================================
+       6. SEÇÃO DIFERENCIAIS
+       ============================================ */
+    .diferenciais {
+      padding: 6rem 0 7rem;
+      position: relative;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--cor-cta);
+      margin-bottom: 1rem;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      color: var(--cor-branco);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .card {
+      position: relative;
+      background: var(--cor-card);
+      border: 1px solid var(--cor-borda);
+      border-radius: var(--radius);
+      padding: 2.75rem 2rem;
+      text-align: center;
+      overflow: hidden;
+      transition: transform var(--transicao), border-color var(--transicao), box-shadow var(--transicao);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--cor-cta), var(--cor-acento));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transicao);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(245, 180, 0, 0.28);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55);
+    }
+    .card:hover::before { transform: scaleX(1); }
+
+    .card-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      font-size: 2rem;
+      border-radius: 50%;
+      background: rgba(255, 81, 0, 0.1);
+      border: 1px solid rgba(255, 81, 0, 0.25);
+      margin-bottom: 1.5rem;
+      transition: transform var(--transicao), background var(--transicao);
+    }
+
+    .card:hover .card-icon {
+      transform: scale(1.12) rotate(-6deg);
+      background: rgba(255, 81, 0, 0.2);
+    }
+
+    .card h3 {
+      font-size: 1.7rem;
+      color: var(--cor-branco);
+      margin-bottom: 0.85rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--cor-texto-suave);
+      line-height: 1.7;
+    }
+
+    /* ============================================
+       7. RESPONSIVIDADE
+       ============================================ */
+    @media (max-width: 1024px) {
+      .hero-card { right: 1rem; bottom: 1rem; }
+      .hero-content { max-width: 560px; }
+    }
+
+    @media (max-width: 900px) {
+      .cards-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+      .card { padding: 2.25rem 1.75rem; }
+    }
+
+    @media (max-width: 768px) {
+      /* Navbar mobile */
+      .menu-icon { display: flex; order: 3; }
+
+      .btn-cta.nav-cta {
+        font-size: 0.95rem;
+        padding: 0.6rem 1.1rem;
+        order: 2;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 78px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        background: rgba(26, 26, 26, 0.98);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid var(--cor-borda);
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 1.5rem;
+        margin-left: 0;
+        transition: max-height var(--transicao), padding var(--transicao);
+      }
+
+      .nav-links li { width: 100%; }
+
+      .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--cor-borda);
+        font-size: 0.9rem;
+      }
+      .nav-links a::after { display: none; }
+
+      .menu-toggle:checked ~ .nav-links {
+        max-height: 340px;
+        padding: 0.5rem 1.5rem 1.5rem;
+      }
+
+      /* Hero mobile */
+      .hero {
+        min-height: auto;
+        padding: 7rem 0 4rem;
+        text-align: left;
+      }
+
+      .hero-bg { background-position: center; }
+
+      .hero-overlay {
+        background:
+          linear-gradient(180deg,
+            rgba(26, 26, 26, 0.95) 0%,
+            rgba(26, 26, 26, 0.82) 40%,
+            rgba(26, 26, 26, 0.96) 100%);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.25rem;
+      }
+
+      .btn-primary { justify-content: center; width: 100%; font-size: 1.2rem; }
+      .btn-ghost  { text-align: center; }
+
+      .hero-card {
+        position: static;
+        margin-top: 3rem;
+        width: 100%;
+        justify-content: flex-start;
+        animation: none;
+      }
+
+      .diferenciais { padding: 4.5rem 0 5rem; }
+    }
+
+    @media (max-width: 420px) {
+      .logo { font-size: 1.45rem; }
+      .logo .flame { font-size: 1.25rem; }
+      .btn-cta.nav-cta { font-size: 0.85rem; padding: 0.55rem 0.9rem; }
+      .nav-container { height: 70px; padding: 0 1rem; }
+      .nav-links { top: 70px; }
+      .container { padding: 0 1.1rem; }
+      .hero-card { padding: 0.75rem 1rem 0.75rem 0.75rem; }
+      .hero-card img { width: 54px; height: 54px; }
+    }
+
+    /* Acessibilidade: respeita preferência por menos movimento */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ============================================
+   8. SEÇÃO CARDÁPIO EM DESTAQUE
+   ============================================ */
+.cardapio {
+  padding: 6rem 0 7rem;
+  position: relative;
+  background:
+    radial-gradient(ellipse at top, rgba(255, 81, 0, 0.06), transparent 60%),
+    var(--cor-fundo);
+}
+
+.cardapio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.produto {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform var(--transicao), border-color var(--transicao), box-shadow var(--transicao);
+}
+
+.produto:hover {
+  transform: translateY(-10px);
+  border-color: rgba(245, 180, 0, 0.35);
+  box-shadow: 0 26px 55px rgba(0, 0, 0, 0.6);
+}
+
+/* Foto em close */
+.produto-foto {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #111;
+}
+
+.produto-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.produto:hover .produto-foto img {
+  transform: scale(1.08);
+}
+
+.produto-foto::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(44, 44, 44, 0.95) 100%);
+  pointer-events: none;
+}
+
+/* Selo no topo do card */
+.produto-selo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  background: var(--cor-cta);
+  color: var(--cor-branco);
+  font-family: var(--fonte-titulo);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(255, 81, 0, 0.4);
+}
+
+.produto-selo.dourado {
+  background: var(--cor-acento);
+  color: #1A1A1A;
+  box-shadow: 0 6px 16px rgba(245, 180, 0, 0.4);
+}
+
+/* Corpo do card */
+.produto-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.5rem 1.6rem 1.75rem;
+}
+
+.produto h3 {
+  font-size: 1.75rem;
+  color: var(--cor-branco);
+  margin-bottom: 0.65rem;
+  line-height: 1;
+}
+
+.produto-desc {
+  font-size: 0.92rem;
+  color: var(--cor-texto-suave);
+  line-height: 1.65;
+  margin-bottom: 1.35rem;
+  flex: 1;
+}
+
+.produto-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.1rem;
+  font-size: 0.78rem;
+  color: var(--cor-texto-suave);
+  letter-spacing: 0.05em;
+}
+
+.produto-meta .rating {
+  color: var(--cor-acento);
+  font-weight: 600;
+}
+
+.produto-meta .divisor {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--cor-texto-suave);
+  opacity: 0.5;
+}
+
+/* Linha de preço + botão */
+.produto-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.produto-preco {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.produto-preco .de {
+  font-size: 0.72rem;
+  color: var(--cor-texto-suave);
+  text-decoration: line-through;
+  margin-bottom: 4px;
+}
+
+.produto-preco .por {
+  font-family: var(--fonte-titulo);
+  font-size: 1.75rem;
+  color: var(--cor-cta);
+  letter-spacing: 0.02em;
+}
+
+/* Botão Adicionar */
+.btn-add {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background: transparent;
+  color: var(--cor-texto);
+  font-family: var(--fonte-corpo);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.75rem 1.1rem;
+  border: 1.5px solid rgba(245, 180, 0, 0.45);
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--transicao), color var(--transicao),
+              border-color var(--transicao), transform var(--transicao);
+}
+
+.btn-add:hover {
+  background: var(--cor-acento);
+  color: #1A1A1A;
+  border-color: var(--cor-acento);
+  transform: translateY(-2px);
+}
+
+.btn-add:active { transform: translateY(0) scale(0.97); }
+
+/* Estado "adicionado" */
+.btn-add.adicionado {
+  background: var(--cor-cta);
+  border-color: var(--cor-cta);
+  color: var(--cor-branco);
+  animation: popAdd 0.45s ease;
+}
+
+@keyframes popAdd {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+/* ============================================
+   9. SEÇÃO COMBO / OFERTA DA SEMANA
+   ============================================ */
+.combo {
+  padding: 2rem 0 7rem;
+}
+
+.combo-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  gap: 0;
+  background: var(--cor-card);
+  border: 2px solid var(--cor-acento);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(245, 180, 0, 0.15),
+    0 20px 60px rgba(245, 180, 0, 0.12),
+    var(--sombra-card);
+}
+
+/* Glow dourado animado */
+.combo-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: var(--radius);
+  padding: 2px;
+  background: linear-gradient(120deg,
+    transparent 30%,
+    rgba(245, 180, 0, 0.55) 50%,
+    transparent 70%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--transicao);
+  pointer-events: none;
+  animation: shineLoop 6s ease-in-out infinite;
+}
+
+@keyframes shineLoop {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 1; }
+}
+
+/* Lado da imagem */
+.combo-visual {
+  position: relative;
+  min-height: 340px;
+  background: #111;
+  overflow: hidden;
+}
+
+.combo-visual img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s ease;
+}
+
+.combo-card:hover .combo-visual img {
+  transform: scale(1.06);
+}
+
+.combo-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 55%, rgba(44, 44, 44, 0.9) 100%);
+  pointer-events: none;
+}
+
+/* Selo de oferta */
+.combo-badge {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--cor-acento);
+  color: #1A1A1A;
+  font-family: var(--fonte-titulo);
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  box-shadow: 0 8px 22px rgba(245, 180, 0, 0.45);
+}
+
+/* Lado do conteúdo */
+.combo-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 3rem 3rem 2.5rem;
+}
+
+.combo-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--cor-cta);
+  margin-bottom: 1rem;
+}
+
+.combo-content h2 {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  color: var(--cor-branco);
+  margin-bottom: 1rem;
+  line-height: 0.95;
+}
+
+.combo-content h2 .dourado {
+  color: var(--cor-acento);
+}
+
+.combo-texto {
+  font-size: 1rem;
+  color: var(--cor-texto-suave);
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+  max-width: 440px;
+}
+
+.combo-texto strong {
+  color: var(--cor-texto);
+  font-weight: 600;
+}
+
+/* Lista de itens inclusos */
+.combo-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.combo-lista li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(245, 180, 0, 0.08);
+  border: 1px solid rgba(245, 180, 0, 0.25);
+  color: var(--cor-texto);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+}
+
+/* CTA do combo */
+.btn-combo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  align-self: flex-start;
+  background: var(--cor-acento);
+  color: #1A1A1A;
+  font-family: var(--fonte-titulo);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  padding: 1rem 2.4rem;
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(245, 180, 0, 0.35);
+  transition: transform var(--transicao), box-shadow var(--transicao), background var(--transicao);
+}
+
+.btn-combo::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  transition: left 0.7s ease;
+}
+
+.btn-combo:hover {
+  background: #FFC93A;
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 18px 42px rgba(245, 180, 0, 0.55);
+}
+.btn-combo:hover::before { left: 100%; }
+.btn-combo:active { transform: translateY(-1px) scale(1); }
+
+.combo-nota {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: var(--cor-texto-suave);
+  letter-spacing: 0.03em;
+  opacity: 0.8;
+}
+
+/* ============================================
+   10. RESPONSIVIDADE DAS NOVAS SEÇÕES
+   ============================================ */
+@media (max-width: 1024px) {
+  .cardapio-grid { gap: 1.5rem; }
+  .combo-content { padding: 2.5rem 2rem; }
+}
+
+@media (max-width: 900px) {
+  .cardapio-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .combo-card {
+    grid-template-columns: 1fr;
+  }
+
+  .combo-visual {
+    min-height: 240px;
+  }
+
+  .combo-visual::after {
+    background: linear-gradient(180deg, transparent 40%, rgba(44, 44, 44, 0.95) 100%);
+  }
+
+  .combo-content {
+    padding: 2.25rem 1.75rem 2.5rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  .combo-texto { margin-inline: auto; }
+  .combo-lista { justify-content: center; }
+  .btn-combo { align-self: center; width: 100%; max-width: 340px; }
+}
+
+@media (max-width: 480px) {
+  .cardapio { padding: 4.5rem 0 5rem; }
+  .combo { padding: 1rem 0 5rem; }
+
+  .produto-body { padding: 1.25rem 1.25rem 1.5rem; }
+  .produto h3 { font-size: 1.55rem; }
+  .produto-preco .por { font-size: 1.55rem; }
+
+  .produto-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+  }
+
+  .btn-add { width: 100%; padding: 0.85rem 1rem; }
+
+  .combo-content h2 { font-size: 2.1rem; }
+  .btn-combo { font-size: 1.15rem; padding: 0.9rem 1.6rem; }
+}
+
+/* ============================================
+   11. SEÇÃO DEPOIMENTOS
+   ============================================ */
+   .depoimentos {
+  padding: 6rem 0 7rem;
+  position: relative;
+  background:
+    radial-gradient(ellipse at bottom, rgba(245, 180, 0, 0.05), transparent 55%),
+    var(--cor-fundo);
+}
+
+.depoimentos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.depoimento {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--radius);
+  padding: 2.25rem 1.9rem 2rem;
+  overflow: hidden;
+  transition: transform var(--transicao), border-color var(--transicao), box-shadow var(--transicao);
+}
+
+.depoimento::before {
+  content: '"';
+  position: absolute;
+  top: -30px;
+  right: 18px;
+  font-family: var(--fonte-titulo);
+  font-size: 9rem;
+  line-height: 1;
+  color: rgba(255, 81, 0, 0.08);
+  pointer-events: none;
+  transition: color var(--transicao);
+}
+
+.depoimento:hover {
+  transform: translateY(-8px);
+  border-color: rgba(245, 180, 0, 0.3);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.55);
+}
+
+.depoimento:hover::before { color: rgba(255, 81, 0, 0.16); }
+
+.depoimento-stars {
+  display: flex;
+  gap: 3px;
+  font-size: 1rem;
+  color: var(--cor-acento);
+  margin-bottom: 1.25rem;
+  letter-spacing: 2px;
+}
+
+.depoimento-texto {
+  flex: 1;
+  font-size: 0.96rem;
+  line-height: 1.75;
+  color: var(--cor-texto);
+  margin-bottom: 1.75rem;
+  font-style: italic;
+}
+
+.depoimento-autor {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.depoimento-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--cor-cta);
+  box-shadow: 0 0 0 3px rgba(255, 81, 0, 0.15);
+  transition: transform var(--transicao), box-shadow var(--transicao);
+}
+
+.depoimento:hover .depoimento-avatar {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 4px rgba(255, 81, 0, 0.25);
+}
+
+.depoimento-info { display: flex; flex-direction: column; line-height: 1.3; }
+
+.depoimento-info .nome {
+  font-family: var(--fonte-titulo);
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+  color: var(--cor-branco);
+}
+
+.depoimento-info .cargo {
+  font-size: 0.75rem;
+  color: var(--cor-texto-suave);
+  letter-spacing: 0.04em;
+}
+
+/* ============================================
+   12. SEÇÃO NOSSA HISTÓRIA
+   ============================================ */
+.historia {
+  padding: 4rem 0 7rem;
+  position: relative;
+}
+
+.historia-bloco {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.historia-visual {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  box-shadow: var(--sombra-card);
+}
+
+.historia-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.historia-visual:hover img { transform: scale(1.06); }
+
+.historia-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 55%, rgba(26, 26, 26, 0.75) 100%),
+    linear-gradient(120deg, rgba(255, 81, 0, 0.08), transparent 55%);
+  pointer-events: none;
+}
+
+/* Card estatístico sobreposto */
+.historia-stat {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: rgba(44, 44, 44, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(245, 180, 0, 0.35);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.15rem;
+  animation: floatY 5s ease-in-out infinite;
+}
+
+.historia-stat .num {
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--cor-acento);
+  letter-spacing: 0.02em;
+}
+
+.historia-stat .lbl {
+  font-size: 0.72rem;
+  color: var(--cor-texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  line-height: 1.3;
+}
+
+.historia-conteudo h2 {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  color: var(--cor-branco);
+  margin-bottom: 1.5rem;
+}
+
+.historia-conteudo h2 .laranja { color: var(--cor-cta); }
+
+.historia-conteudo p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--cor-texto-suave);
+  margin-bottom: 1.25rem;
+}
+
+.historia-conteudo p strong {
+  color: var(--cor-texto);
+  font-weight: 600;
+}
+
+.historia-assinatura {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--cor-borda);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.historia-assinatura .avatar-chef {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--cor-acento);
+}
+
+.historia-assinatura .dados { display: flex; flex-direction: column; line-height: 1.35; }
+
+.historia-assinatura .nome {
+  font-family: var(--fonte-titulo);
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  color: var(--cor-branco);
+}
+
+.historia-assinatura .cargo {
+  font-size: 0.75rem;
+  color: var(--cor-texto-suave);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ============================================
+   13. SEÇÃO LOCALIZAÇÃO & HORÁRIOS
+   ============================================ */
+.local {
+  padding: 2rem 0 8rem;
+}
+
+.local-bloco {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 0;
+  background: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--sombra-card);
+}
+
+/* Mapa / visual */
+.local-mapa {
+  position: relative;
+  min-height: 420px;
+  background: #111;
+  overflow: hidden;
+}
+
+.local-mapa img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.35) brightness(0.75);
+  transition: transform 1s ease, filter 0.6s ease;
+}
+
+.local-bloco:hover .local-mapa img {
+  transform: scale(1.04);
+  filter: grayscale(0) brightness(0.85);
+}
+
+.local-mapa::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 60%, rgba(44, 44, 44, 0.95) 100%),
+    linear-gradient(180deg, rgba(26, 26, 26, 0.2), rgba(26, 26, 26, 0.6));
+  pointer-events: none;
+}
+
+.local-pin {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: floatY 3.2s ease-in-out infinite;
+}
+
+.local-pin .pino {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  font-size: 1.6rem;
+  background: var(--cor-cta);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: 0 10px 24px rgba(255, 81, 0, 0.5);
+}
+
+.local-pin .pino span { transform: rotate(45deg); }
+
+.local-pin .pulso {
+  position: absolute;
+  bottom: -8px;
+  width: 60px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 81, 0, 0.35);
+  filter: blur(6px);
+  animation: pulseRing 2s ease-out infinite;
+}
+
+@keyframes pulseRing {
+  0%   { transform: scale(0.7); opacity: 0.9; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Conteúdo lateral */
+.local-conteudo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 3rem 3rem 2.75rem;
+}
+
+.local-conteudo h2 {
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  color: var(--cor-branco);
+  margin-bottom: 1.75rem;
+}
+
+.local-item {
+  display: flex;
+  gap: 1.1rem;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.local-item:last-of-type { border-bottom: none; }
+
+.local-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  font-size: 1.25rem;
+  background: rgba(255, 81, 0, 0.1);
+  border: 1px solid rgba(255, 81, 0, 0.25);
+  border-radius: var(--radius-sm);
+  transition: background var(--transicao), transform var(--transicao);
+}
+
+.local-item:hover .local-icon {
+  background: rgba(255, 81, 0, 0.2);
+  transform: scale(1.06);
+}
+
+.local-info { display: flex; flex-direction: column; gap: 2px; }
+
+.local-info .titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  color: var(--cor-branco);
+  margin-bottom: 2px;
+}
+
+.local-info .texto {
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+  line-height: 1.55;
+}
+
+.local-info .texto strong { color: var(--cor-texto); font-weight: 600; }
+
+/* Botão WhatsApp */
+.btn-whats {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 2rem;
+  background: #25D366;
+  color: #0A0A0A;
+  font-family: var(--fonte-titulo);
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.3);
+  transition: transform var(--transicao), box-shadow var(--transicao), background var(--transicao);
+}
+
+.btn-whats svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.btn-whats:hover {
+  background: #20BD5A;
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(37, 211, 102, 0.45);
+}
+.btn-whats:active { transform: translateY(-1px) scale(1); }
+
+/* ============================================
+   14. RODAPÉ
+   ============================================ */
+.rodape {
+  background: #131313;
+  border-top: 1px solid var(--cor-borda);
+  padding: 5rem 0 2rem;
+  position: relative;
+}
+
+.rodape::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cor-cta), var(--cor-acento), transparent);
+}
+
+.rodape-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+.rodape-marca .logo {
+  font-size: 1.9rem;
+  margin-bottom: 1rem;
+  display: inline-flex;
+}
+
+.rodape-marca p {
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+  line-height: 1.7;
+  max-width: 320px;
+  margin-bottom: 1.5rem;
+}
+
+.rodape-social {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.rodape-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--cor-borda);
+  border-radius: 50%;
+  color: var(--cor-texto-suave);
+  transition: background var(--transicao), color var(--transicao),
+              transform var(--transicao), border-color var(--transicao);
+}
+
+.rodape-social a:hover {
+  background: var(--cor-cta);
+  color: var(--cor-branco);
+  border-color: var(--cor-cta);
+  transform: translateY(-4px);
+}
+
+.rodape-social svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.rodape-col h4 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  color: var(--cor-branco);
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+}
+
+.rodape-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.rodape-col a,
+.rodape-col span {
+  font-size: 0.88rem;
+  color: var(--cor-texto-suave);
+  transition: color var(--transicao), padding-left var(--transicao);
+}
+
+.rodape-col a:hover {
+  color: var(--cor-acento);
+  padding-left: 4px;
+}
+
+.rodape-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--cor-borda);
+  flex-wrap: wrap;
+}
+
+.rodape-bottom p {
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+  letter-spacing: 0.03em;
+}
+
+.rodape-bottom p .coracao { color: var(--cor-cta); }
+
+.rodape-bottom .pix {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--cor-texto-suave);
+  padding: 0.45rem 0.9rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+}
+
+/* ============================================
+   15. STICKY BAR MOBILE
+   ============================================ */
+.sticky-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(20, 20, 20, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--cor-borda);
+  padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom, 0px));
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.sticky-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.sticky-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  min-width: 0;
+}
+
+.sticky-info .label {
+  font-size: 0.68rem;
+  color: var(--cor-texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.sticky-info .valor {
+  font-family: var(--fonte-titulo);
+  font-size: 1.15rem;
+  color: var(--cor-acento);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.btn-sticky {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--cor-cta);
+  color: var(--cor-branco);
+  font-family: var(--fonte-titulo);
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  box-shadow: var(--sombra-cta);
+  transition: transform var(--transicao), background var(--transicao);
+  position: relative;
+}
+
+.btn-sticky:active {
+  transform: scale(0.97);
+  background: var(--cor-cta-hover);
+}
+
+/* Badge do carrinho na sticky */
+.btn-sticky .badge-sticky {
+  position: absolute;
+  top: -6px; right: -4px;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: var(--cor-acento);
+  color: #1A1A1A;
+  font-family: var(--fonte-corpo);
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.25s ease;
+}
+
+/* ============================================
+   16. RESPONSIVIDADE DAS SEÇÕES FINAIS
+   ============================================ */
+@media (max-width: 1024px) {
+  .historia-bloco { gap: 3rem; }
+  .local-conteudo { padding: 2.5rem 2rem; }
+  .rodape-grid { grid-template-columns: 1.4fr 1fr 1fr; gap: 2.25rem; }
+  .rodape-col:nth-child(4) { grid-column: 1 / -1; }
+}
+
+@media (max-width: 900px) {
+  .depoimentos-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .historia-bloco {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .historia-visual { aspect-ratio: 16 / 11; }
+
+  .local-bloco { grid-template-columns: 1fr; }
+
+  .local-mapa {
+    min-height: 240px;
+  }
+
+  .local-mapa::after {
+    background: linear-gradient(180deg, transparent 40%, rgba(44, 44, 44, 0.95) 100%);
+  }
+
+  .local-conteudo {
+    padding: 2.25rem 1.75rem;
+    text-align: left;
+  }
+
+  .rodape-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .rodape-col:nth-child(4) { grid-column: auto; }
+}
+
+@media (max-width: 768px) {
+  .depoimentos { padding: 4.5rem 0 5rem; }
+  .historia   { padding: 3rem 0 5rem; }
+  .local      { padding: 1rem 0 5.5rem; }
+  .rodape     { padding: 4rem 0 1.5rem; }
+
+  /* Ativa a sticky bar e reserva espaço no body */
+  .sticky-bar { display: block; }
+  body { padding-bottom: 84px; }
+}
+
+@media (max-width: 480px) {
+  .depoimento { padding: 1.75rem 1.5rem 1.5rem; }
+  .depoimento::before { font-size: 7rem; top: -20px; }
+  .depoimento-texto { font-size: 0.9rem; }
+
+  .historia-stat {
+    bottom: 1rem;
+    left: 1rem;
+    padding: 0.7rem 0.95rem;
+  }
+  .historia-stat .num { font-size: 1.6rem; }
+
+  .local-conteudo { padding: 1.75rem 1.25rem 2rem; }
+  .local-item { gap: 0.85rem; padding: 1rem 0; }
+  .local-icon { width: 40px; height: 40px; font-size: 1.1rem; }
+  .btn-whats { width: 100%; font-size: 1.1rem; padding: 0.9rem 1.4rem; }
+
+  .rodape-grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+    text-align: left;
+  }
+
+  .rodape-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .sticky-bar-inner { gap: 0.6rem; }
+  .btn-sticky { font-size: 1rem; padding: 0.75rem 1.1rem; }
+  .sticky-info .label { font-size: 0.62rem; }
+  .sticky-info .valor { font-size: 1.05rem; }
+}
+
+/* ============================================
+   17. CARRINHO FLUTUANTE
+   ============================================ */
+   .cart-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 998;
+  display: none;              /* aparece via JS quando há itens */
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--cor-cta);
+  color: var(--cor-branco);
+  border: none;
+  font-family: var(--fonte-corpo);
+  padding: 0.9rem 1.3rem;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 14px 34px rgba(255, 81, 0, 0.45);
+  transition: transform var(--transicao), box-shadow var(--transicao), background var(--transicao);
+  animation: cartPop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cart-float.visible { display: inline-flex; }
+
+@keyframes cartPop {
+  0%   { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.cart-float:hover {
+  background: var(--cor-cta-hover);
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 20px 44px rgba(255, 81, 0, 0.55);
+}
+
+.cart-float:active { transform: translateY(-1px) scale(1); }
+
+.cart-float .cart-icone {
+  position: relative;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.cart-float .cart-qtd {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cor-acento);
+  color: #1A1A1A;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 999px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+}
+
+.cart-float .cart-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.15;
+}
+
+.cart-float .cart-info .lbl {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.85;
+}
+
+.cart-float .cart-info .total {
+  font-family: var(--fonte-titulo);
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================
+   18. MODAL DE CHECKOUT
+   ============================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity var(--transicao);
+}
+
+.modal-overlay.visible {
+  display: flex;
+  opacity: 1;
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65);
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.35s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+.modal-overlay.visible .modal {
+  transform: translateY(0) scale(1);
+}
+
+/* Header do modal */
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1.75rem;
+  border-bottom: 1px solid var(--cor-borda);
+  flex-shrink: 0;
+}
+
+.modal-header h3 {
+  font-size: 1.7rem;
+  color: var(--cor-branco);
+  letter-spacing: 0.05em;
+}
+
+.modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--cor-borda);
+  border-radius: 50%;
+  color: var(--cor-texto);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background var(--transicao), color var(--transicao), transform var(--transicao);
+}
+
+.modal-close:hover {
+  background: var(--cor-cta);
+  color: var(--cor-branco);
+  transform: rotate(90deg);
+}
+
+/* Corpo rolável */
+.modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem 1.75rem;
+}
+
+.modal-body::-webkit-scrollbar { width: 6px; }
+.modal-body::-webkit-scrollbar-track { background: transparent; }
+.modal-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 81, 0, 0.35);
+  border-radius: 999px;
+}
+
+/* Lista de itens do carrinho */
+.cart-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.75rem;
+}
+
+.cart-vazio {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+}
+
+.cart-vazio .emoji {
+  display: block;
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.4;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  grid-template-areas:
+    "info  qtd   remove"
+    "obs   obs   obs";
+  align-items: center;
+  gap: 0.75rem 0.9rem;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  animation: itemSlide 0.3s ease;
+}
+
+.cart-item-info {
+  grid-area: info;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.cart-item-info .nome {
+  font-family: var(--fonte-titulo);
+  font-size: 1.15rem;
+  letter-spacing: 0.03em;
+  color: var(--cor-branco);
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cart-item-info .preco {
+  font-size: 0.82rem;
+  color: var(--cor-acento);
+  font-weight: 600;
+  white-space: nowrap;  /* ← ISSO resolve a quebra do "x =" */
+}
+
+.cart-item-controles {
+  grid-area: qtd;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+  padding: 2px;
+  white-space: nowrap;
+}
+
+.cart-remove {
+  grid-area: remove;
+}
+
+.cart-item-obs {
+  grid-area: obs;
+}
+
+.cart-qty-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--cor-texto);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background var(--transicao), color var(--transicao);
+}
+
+.cart-qty-btn:hover {
+  background: var(--cor-cta);
+  color: var(--cor-branco);
+}
+
+.cart-qty-num {
+  min-width: 22px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--cor-branco);
+}
+
+.cart-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  color: var(--cor-texto-suave);
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background var(--transicao), color var(--transicao), transform var(--transicao);
+}
+
+.cart-remove:hover {
+  background: rgba(255, 81, 0, 0.15);
+  color: var(--cor-cta);
+  transform: scale(1.1);
+}
+
+/* Subtítulo seções do modal */
+.modal-subtitulo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--fonte-titulo);
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  color: var(--cor-branco);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.modal-subtitulo::before {
+  content: '';
+  width: 4px;
+  height: 18px;
+  background: var(--cor-cta);
+  border-radius: 2px;
+}
+
+/* Formulário */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-campo.full { grid-column: 1 / -1; }
+
+.form-campo label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--cor-texto-suave);
+}
+
+.form-campo input,
+.form-campo select {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--radius-sm);
+  color: var(--cor-branco);
+  font-family: var(--fonte-corpo);
+  font-size: 0.95rem;
+  padding: 0.75rem 0.9rem;
+  outline: none;
+  transition: border-color var(--transicao), background var(--transicao), box-shadow var(--transicao);
+  width: 100%;
+}
+
+.form-campo input::placeholder { color: rgba(168, 155, 142, 0.5); }
+
+.form-campo input:focus,
+.form-campo select:focus {
+  border-color: var(--cor-cta);
+  background: rgba(0, 0, 0, 0.45);
+  box-shadow: 0 0 0 3px rgba(255, 81, 0, 0.15);
+}
+
+.form-campo.erro input,
+.form-campo.erro select {
+  border-color: #E63946;
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.15);
+}
+
+.form-campo .msg-erro {
+  font-size: 0.72rem;
+  color: #E63946;
+  display: none;
+}
+
+.form-campo.erro .msg-erro { display: block; }
+
+.form-campo select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23F8D19B' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  padding-right: 2.2rem;
+  cursor: pointer;
+}
+
+.form-campo select option {
+  background: #1A1A1A;
+  color: var(--cor-branco);
+}
+
+/* Rodapé do modal */
+.modal-footer {
+  padding: 1.25rem 1.75rem 1.75rem;
+  border-top: 1px solid var(--cor-borda);
+  background: rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+.cart-resumo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+}
+
+.cart-resumo .linha {
+  display: flex;
+  justify-content: space-between;
+  color: var(--cor-texto-suave);
+}
+
+.cart-resumo .linha.total {
+  padding-top: 0.6rem;
+  margin-top: 0.3rem;
+  border-top: 1px solid var(--cor-borda);
+  font-family: var(--fonte-titulo);
+  font-size: 1.4rem;
+  letter-spacing: 0.03em;
+  color: var(--cor-branco);
+}
+
+.cart-resumo .linha.total .valor { color: var(--cor-cta); }
+
+.btn-checkout {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: #25D366;
+  color: #0A0A0A;
+  font-family: var(--fonte-titulo);
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.3);
+  transition: transform var(--transicao), box-shadow var(--transicao), background var(--transicao);
+}
+
+.btn-checkout:hover {
+  background: #20BD5A;
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(37, 211, 102, 0.45);
+}
+
+.btn-checkout:active { transform: translateY(0) scale(0.98); }
+
+.btn-checkout:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-checkout svg { width: 22px; height: 22px; }
+
+/* Responsivo do modal */
+@media (max-width: 768px) {
+  .cart-float {
+    bottom: 100px;              /* acima da sticky bar mobile */
+    right: 16px;
+    padding: 0.8rem 1.1rem;
+  }
+  .cart-float .cart-info .lbl { display: none; }
+}
+
+@media (max-width: 480px) {
+  .modal-overlay { padding: 0; align-items: flex-end; }
+
+  .modal {
+    max-width: 100%;
+    max-height: 95vh;
+    border-radius: var(--radius) var(--radius) 0 0;
+    transform: translateY(100%);
+  }
+
+  .modal-overlay.visible .modal { transform: translateY(0); }
+
+  .modal-header { padding: 1.25rem 1.25rem 1rem; }
+  .modal-header h3 { font-size: 1.4rem; }
+  .modal-body { padding: 1.25rem; }
+  .modal-footer { padding: 1rem 1.25rem 1.5rem; }
+
+  .form-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+
+  .cart-item { padding: 0.7rem 0.75rem; gap: 0.6rem; }
+  .cart-item-info .nome { font-size: 1rem; }
+  .cart-qty-btn { width: 26px; height: 26px; }
+  .cart-remove { width: 28px; height: 28px; }
+}
+
+/* ============================================
+   19. OBSERVAÇÕES POR ITEM
+   ============================================ */
+   .cart-item-obs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.75rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.cart-item-obs label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cor-texto-suave);
+  font-weight: 600;
+}
+
+.cart-item-obs input {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  color: var(--cor-branco);
+  font-family: var(--fonte-corpo);
+  font-size: 0.82rem;
+  padding: 0.55rem 0.75rem;
+  outline: none;
+  transition: border-color var(--transicao), background var(--transicao);
+}
+
+.cart-item-obs input::placeholder { color: rgba(168, 155, 142, 0.45); }
+
+.cart-item-obs input:focus {
+  border-color: var(--cor-acento);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   20. CUPOM DE DESCONTO
+   ============================================ */
+.cupom-box {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.cupom-box input {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--radius-sm);
+  color: var(--cor-branco);
+  font-family: var(--fonte-corpo);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.7rem 0.9rem;
+  outline: none;
+  transition: border-color var(--transicao), background var(--transicao);
+}
+
+.cupom-box input::placeholder {
+  color: rgba(168, 155, 142, 0.45);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.cupom-box input:focus {
+  border-color: var(--cor-acento);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.btn-cupom {
+  background: var(--cor-acento);
+  color: #1A1A1A;
+  border: none;
+  font-family: var(--fonte-corpo);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0 1.2rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transicao), transform var(--transicao);
+  white-space: nowrap;
+}
+
+.btn-cupom:hover { background: #FFC93A; transform: translateY(-1px); }
+.btn-cupom:active { transform: translateY(0); }
+.btn-cupom:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.cupom-msg {
+  font-size: 0.78rem;
+  margin-bottom: 1rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 8px;
+  display: none;
+  animation: itemSlide 0.3s ease;
+}
+
+.cupom-msg.ok {
+  display: block;
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  color: #25D366;
+}
+
+.cupom-msg.erro {
+  display: block;
+  background: rgba(230, 57, 70, 0.12);
+  border: 1px solid rgba(230, 57, 70, 0.35);
+  color: #FF6B7A;
+}
+
+/* Linha de desconto no resumo */
+.cart-resumo .linha.desconto {
+  color: #25D366;
+  font-weight: 600;
+}
+
+.cart-resumo .linha.desconto .valor { color: #25D366; }
+
+/* Remover botão desnecessário em mobile */
+@media (max-width: 480px) {
+  .cupom-box { flex-direction: column; }
+  .btn-cupom { padding: 0.75rem; }
+}
+/* ============================================
+   TOAST DE FEEDBACK
+   ============================================ */
+   .toast {
+  position: fixed;
+  bottom: 110px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  z-index: 1100;
+  background: var(--cor-cta);
+  color: var(--cor-branco);
+  font-family: var(--fonte-titulo);
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  padding: 0.9rem 1.6rem;
+  border-radius: 999px;
+  box-shadow: 0 14px 34px rgba(255, 81, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  max-width: calc(100% - 32px);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.toast.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 480px) {
+  .toast { bottom: 100px; font-size: 0.95rem; padding: 0.8rem 1.3rem; }
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================
+       NAVBAR FIXA
+       ============================================ -->
+  <header class="navbar">
+    <nav class="nav-container">
+      <a href="#" class="logo" aria-label="Brasa & Bite — Início">
+        <span class="flame" aria-hidden="true">🔥</span>
+        Brasa &amp; Bite
+      </a>
+
+      <!-- Checkbox para o menu mobile -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-hidden="true">
+      <label for="menu-toggle" class="menu-icon" aria-label="Abrir menu de navegação">
+        <span></span><span></span><span></span>
+      </label>
+
+      <ul class="nav-links">
+        <li><a href="#cardapio">Cardápio</a></li>
+        <li><a href="#diferenciais">Nossa História</a></li>
+        <li><a href="#local">Onde Estamos</a></li>
+        <li><a href="#avaliacoes">Avaliações</a></li>
+      </ul>
+
+      <a href="#cardapio" class="btn-cta nav-cta" data-abrir-carrinho>
+        <span aria-hidden="true">🍔</span> PEDIR AGORA
+      </a>
+    </nav>
+  </header>
+
+  <!-- ============================================
+       SEÇÃO HERO
+       ============================================ -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg" role="img" aria-label="Hambúrguer artesanal suculento com queijo derretendo"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="hero-badge">🔥 Artesanal de verdade</span>
+
+        <h1>
+          O HAMBÚRGUER<br>
+          QUE <span class="destaque">HITS DIFFERENT.</span>
+        </h1>
+
+        <p class="hero-sub">
+          Não é só um lanche. É a brasa, o ponto certo e o sabor que você
+          não esquece. <strong>Blend exclusivo</strong>, pão brioche artesanal
+          e molhos feitos na casa.
+        </p>
+
+        <a href="#cardapio" class="btn-primary" data-abrir-carrinho>
+          FAÇA SEU PEDIDO
+        </a>
+
+        <div class="hero-cardapio">
+          <a href="#cardapio" class="btn-ghost">Ver Cardápio →</a>
+        </div>
+      </div>
+
+      <!-- Card flutuante -->
+      <aside class="hero-card" aria-label="Destaque do cardápio">
+        <img
+          src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=200&q=80"
+          alt="Smash Brasa"
+          loading="lazy">
+        <div class="hero-card-info">
+          <span class="nome">Smash Brasa</span>
+          <span class="preco">R$ 34,90</span>
+          <span class="rating">★★★★★ 4.9 (2.3k)</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SEÇÃO DIFERENCIAIS
+       ============================================ -->
+  <section class="diferenciais" id="diferenciais">
+    <div class="container">
+      <header class="section-head">
+        <span class="section-tag">Por que Brasa &amp; Bite?</span>
+        <h2>O QUE FAZ A DIFERENÇA</h2>
+      </header>
+
+      <div class="cards-grid">
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">🥩</div>
+          <h3>BLEND EXCLUSIVO</h3>
+          <p>
+            Carne 100% bovina, moída na hora e no ponto certo.
+            Suculência que você sente na primeira mordida.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">🍞</div>
+          <h3>PÃO BRIOCHE ARTESANAL</h3>
+          <p>
+            Leve, levemente adocicado e tostado na manteiga.
+            Feito diariamente para segurar todo o sabor.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">🛵</div>
+          <h3>ENTREGA RÁPIDA</h3>
+          <p>
+            Chega quente, suculento e muito bem embalado.
+            Do nosso grill para a sua casa em até 30 minutos.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- ============================================
+     SEÇÃO CARDÁPIO EM DESTAQUE
+     ============================================ -->
+<section class="cardapio" id="cardapio">
+  <div class="container">
+    <header class="section-head">
+      <span class="section-tag">Cardápio</span>
+      <h2>OS MAIS PEDIDOS DA CASA</h2>
+    </header>
+
+    <div class="cardapio-grid">
+
+      <!-- Produto 1 -->
+      <article class="produto">
+        <div class="produto-foto">
+          <span class="produto-selo">🔥 TOP 1</span>
+          <img
+            src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80"
+            alt="Smash Brasa — dois hambúrgueres com cheddar duplo e cebola caramelizada"
+            loading="lazy">
+        </div>
+
+        <div class="produto-body">
+          <h3>SMASH BRASA</h3>
+          <p class="produto-desc">
+            Dois hambúrgueres de 90g, cheddar duplo derretido, cebola
+            caramelizada e maionese da casa no pão brioche.
+          </p>
+
+          <div class="produto-meta">
+            <span class="rating">★ 4.9</span>
+            <span class="divisor"></span>
+            <span>Mais pedido</span>
+          </div>
+
+          <div class="produto-footer">
+            <div class="produto-preco">
+              <span class="de">R$ 42,90</span>
+              <span class="por">R$ 34,90</span>
+            </div>
+            <button
+              type="button"
+              class="btn-add"
+              data-produto="Smash Brasa"
+              data-preco="34.90">
+              <span aria-hidden="true">+</span> Adicionar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Produto 2 -->
+      <article class="produto">
+        <div class="produto-foto">
+          <span class="produto-selo dourado">⭐ FAVORITO</span>
+          <img
+            src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=800&q=80"
+            alt="Bacon Lover — hambúrguer com muito bacon crocante e queijo derretido"
+            loading="lazy">
+        </div>
+
+        <div class="produto-body">
+          <h3>BACON LOVER</h3>
+          <p class="produto-desc">
+            Blend 180g, muito bacon crocante, queijo prato derretido
+            e molho barbecue defumado no pão brioche tostado.
+          </p>
+
+          <div class="produto-meta">
+            <span class="rating">★ 4.8</span>
+            <span class="divisor"></span>
+            <span>Defumado na casa</span>
+          </div>
+
+          <div class="produto-footer">
+            <div class="produto-preco">
+              <span class="de">R$ 47,90</span>
+              <span class="por">R$ 39,90</span>
+            </div>
+            <button
+              type="button"
+              class="btn-add"
+              data-produto="Bacon Lover"
+              data-preco="39.90">
+              <span aria-hidden="true">+</span> Adicionar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Produto 3 -->
+      <article class="produto">
+        <div class="produto-foto">
+          <span class="produto-selo">🌶️ PICANTE</span>
+          <img
+            src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=800&q=80"
+            alt="Pimenta & Cheddar — hambúrguer com cheddar cremoso, geleia de pimenta e rúcula"
+            loading="lazy">
+        </div>
+
+        <div class="produto-body">
+          <h3>PIMENTA &amp; CHEDDAR</h3>
+          <p class="produto-desc">
+            Blend 180g, cheddar cremoso, geleia de pimenta artesanal
+            e rúcula fresca. Equilíbrio perfeito entre doce e picante.
+          </p>
+
+          <div class="produto-meta">
+            <span class="rating">★ 4.9</span>
+            <span class="divisor"></span>
+            <span>Receita autoral</span>
+          </div>
+
+          <div class="produto-footer">
+            <div class="produto-preco">
+              <span class="de">R$ 44,90</span>
+              <span class="por">R$ 37,90</span>
+            </div>
+            <button
+              type="button"
+              class="btn-add"
+              data-produto="Pimenta & Cheddar"
+              data-preco="37.90">
+              <span aria-hidden="true">+</span> Adicionar
+            </button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SEÇÃO COMBO / OFERTA DA SEMANA
+     ============================================ -->
+<section class="combo" id="combo">
+  <div class="container">
+    <article class="combo-card">
+
+      <div class="combo-visual">
+        <span class="combo-badge">🍺 OFERTA DA SEMANA</span>
+        <img
+          src="https://images.unsplash.com/photo-1436076863939-06870fe779c2?auto=format&fit=crop&w=1200&q=80"
+          alt="Combo Brasa & Bite — hambúrguer artesanal acompanhado de cerveja gelada"
+          loading="lazy">
+      </div>
+
+      <div class="combo-content">
+        <span class="combo-tag">Só de sexta a domingo</span>
+
+        <h2>
+          COMBO<br>
+          <span class="dourado">CERVEJA + BURGER</span>
+        </h2>
+
+        <p class="combo-texto">
+          Sexta é dia de Brasa &amp; Bite. Peça qualquer um dos nossos
+          burgers artesanais e leve uma <strong>long neck gelada por apenas R$ 10</strong>.
+          Sem pegadinha, sem letra miúda — só o combo certo.
+        </p>
+
+        <ul class="combo-lista">
+          <li>🍔 Burger artesanal à escolha</li>
+          <li>🍺 Long neck gelada</li>
+          <li>🍟 Batata rústica</li>
+        </ul>
+
+        <a href="#cardapio" class="btn-combo" data-abrir-carrinho>
+          QUERO ESSE COMBO
+        </a>
+
+        <p class="combo-nota">
+          *Válido apenas para pedidos feitos pelo site, de sexta a domingo.
+        </p>
+      </div>
+
+    </article>
+  </div>
+</section>
+<!-- ============================================
+     SEÇÃO DEPOIMENTOS
+     ============================================ -->
+     <section class="depoimentos" id="avaliacoes">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-tag">Avaliações reais</span>
+          <h2>QUEM PROVA, VOLTA.</h2>
+        </header>
+    
+        <div class="depoimentos-grid">
+    
+          <article class="depoimento">
+            <div class="depoimento-stars" aria-label="Avaliação 5 de 5 estrelas">
+              ★★★★★
+            </div>
+            <p class="depoimento-texto">
+              "Simplesmente o melhor smash burger da cidade. O blend é
+              suculento, o pão é perfeito e o atendimento é nota 10.
+              Virei cliente fiel!"
+            </p>
+            <div class="depoimento-autor">
+              <img class="depoimento-avatar"
+                   src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80"
+                   alt="Mariana S." loading="lazy">
+              <div class="depoimento-info">
+                <span class="nome">MARIANA S.</span>
+                <span class="cargo">Cliente desde 2023</span>
+              </div>
+            </div>
+          </article>
+    
+          <article class="depoimento">
+            <div class="depoimento-stars" aria-label="Avaliação 5 de 5 estrelas">
+              ★★★★★
+            </div>
+            <p class="depoimento-texto">
+              "Pedi pelo site e chegou super rápido, quentinho e muito bem
+              embalado. O Bacon Lover é uma obra de arte. Recomendo demais!"
+            </p>
+            <div class="depoimento-autor">
+              <img class="depoimento-avatar"
+                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+                   alt="Carlos E." loading="lazy">
+              <div class="depoimento-info">
+                <span class="nome">CARLOS E.</span>
+                <span class="cargo">Pedido via delivery</span>
+              </div>
+            </div>
+          </article>
+    
+          <article class="depoimento">
+            <div class="depoimento-stars" aria-label="Avaliação 5 de 5 estrelas">
+              ★★★★★
+            </div>
+            <p class="depoimento-texto">
+              "A geleia de pimenta do Pimenta &amp; Cheddar é um diferencial
+              absurdo. Sabor único, ingredientes fresquinhos. Nota 10!"
+            </p>
+            <div class="depoimento-autor">
+              <img class="depoimento-avatar"
+                   src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80"
+                   alt="Juliana P." loading="lazy">
+              <div class="depoimento-info">
+                <span class="nome">JULIANA P.</span>
+                <span class="cargo">Fã do cardápio autoral</span>
+              </div>
+            </div>
+          </article>
+    
+        </div>
+      </div>
+    </section>
+    
+    <!-- ============================================
+         SEÇÃO NOSSA HISTÓRIA
+         ============================================ -->
+    <section class="historia" id="historia">
+      <div class="container">
+        <div class="historia-bloco">
+    
+          <div class="historia-visual">
+            <img
+              src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=900&q=80"
+              alt="Chef grelhando hambúrgueres artesanais na chapa"
+              loading="lazy">
+    
+            <div class="historia-stat">
+              <span class="num">+50k</span>
+              <span class="lbl">burgers<br>servidos</span>
+            </div>
+          </div>
+    
+          <div class="historia-conteudo">
+            <span class="section-tag">Nossa História</span>
+            <h2>FEITO NA BRASA,<br><span class="laranja">COM PAIXÃO.</span></h2>
+    
+            <p>
+              A Brasa &amp; Bite nasceu da obsessão por um hambúrguer perfeito.
+              Testamos, erramos, acertamos — e repetimos o processo até chegar
+              no ponto que a gente queria servir pra nossa própria família.
+            </p>
+    
+            <p>
+              O resultado é um <strong>blend 100% bovino moído na hora</strong>,
+              pão brioche assado diariamente e molhos feitos na casa, sem atalhos
+              e sem conservantes. Cada burger que sai da chapa carrega nossa
+              assinatura: <strong>sabor de verdade</strong>.
+            </p>
+    
+            <div class="historia-assinatura">
+              <img class="avatar-chef"
+                   src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=150&q=80"
+                   alt="Rafael Moura, chef fundador" loading="lazy">
+              <div class="dados">
+                <span class="nome">RAFAEL MOURA</span>
+                <span class="cargo">Chef &amp; Fundador</span>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </section>
+    
+    <!-- ============================================
+         SEÇÃO LOCALIZAÇÃO & HORÁRIOS
+         ============================================ -->
+    <section class="local" id="local">
+      <div class="container">
+        <div class="local-bloco">
+    
+          <div class="local-mapa">
+            <img
+              src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=80"
+              alt="Vista da rua onde fica a Brasa & Bite"
+              loading="lazy">
+    
+            <div class="local-pin" aria-hidden="true">
+              <div class="pino"><span>📍</span></div>
+              <div class="pulso"></div>
+            </div>
+          </div>
+    
+          <div class="local-conteudo">
+            <span class="section-tag">Onde nos encontrar</span>
+            <h2>ONDE NOS<br>ENCONTRAR</h2>
+    
+            <div class="local-item">
+              <div class="local-icon" aria-hidden="true">📍</div>
+              <div class="local-info">
+                <span class="titulo">ENDEREÇO</span>
+                <span class="texto">
+                  Rua das Brasas, 123 — Centro<br>
+                  São Paulo / SP — CEP 01000-000
+                </span>
+              </div>
+            </div>
+    
+            <div class="local-item">
+              <div class="local-icon" aria-hidden="true">🕒</div>
+              <div class="local-info">
+                <span class="titulo">HORÁRIO</span>
+                <span class="texto">
+                  Terça a Domingo — <strong>18h às 23h</strong><br>
+                  Segunda-feira: fechado
+                </span>
+              </div>
+            </div>
+    
+            <div class="local-item">
+              <div class="local-icon" aria-hidden="true">📞</div>
+              <div class="local-info">
+                <span class="titulo">CONTATO</span>
+                <span class="texto">
+                  (11) 99999-0000<br>
+                  oi@brasaebite.com.br
+                </span>
+              </div>
+            </div>
+    
+            <a href="https://wa.me/5511999990000?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20na%20Brasa%20%26%20Bite%20%F0%9F%94%A5"
+               class="btn-whats"
+               target="_blank"
+               rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.3 4.7 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2z"/>
+              </svg>
+              PEDIR PELO WHATSAPP
+            </a>
+          </div>
+    
+        </div>
+      </div>
+    </section>
+    
+    <!-- ============================================
+         RODAPÉ
+         ============================================ -->
+    <footer class="rodape">
+      <div class="container">
+    
+        <div class="rodape-grid">
+    
+          <div class="rodape-marca">
+            <a href="#inicio" class="logo">
+              <span class="flame" aria-hidden="true">🔥</span>
+              Brasa &amp; Bite
+            </a>
+            <p>
+              Hambúrguer artesanal de verdade, feito na brasa com
+              blend exclusivo e ingredientes selecionados. Do nosso
+              grill para a sua casa.
+            </p>
+    
+            <div class="rodape-social">
+              <a href="#" aria-label="Instagram da Brasa & Bite">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.2-.1 1.6-.1 4.8-.1zm0 2c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.2.8-.4.4-.6.7-.8 1.2-.2.4-.3 1-.4 2.1C2.7 8.5 2.7 8.9 2.7 12s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.2.4.4.7.6 1.2.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.2-.8.4-.4.6-.7.8-1.2.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.2-.4-.4-.7-.6-1.2-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1zm0 3.4a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8zm0 7.2a2.8 2.8 0 1 0 0-5.6 2.8 2.8 0 0 0 0 5.6zm5.6-7.4a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                </svg>
+              </a>
+              <a href="#" aria-label="Facebook da Brasa & Bite">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M22 12c0-5.5-4.5-10-10-10S2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7C18.3 21.1 22 17 22 12z"/>
+                </svg>
+              </a>
+              <a href="#" aria-label="TikTok da Brasa & Bite">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M16.5 2h-3v13.4c0 1.6-1.3 2.9-2.9 2.9s-2.9-1.3-2.9-2.9 1.3-2.9 2.9-2.9c.3 0 .6 0 .9.1V9.5c-.3 0-.6-.1-.9-.1-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6V8.6c1.2.9 2.7 1.4 4.3 1.4V7c-2.4 0-4.4-2-4.4-4.4V2z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+    
+          <div class="rodape-col">
+            <h4>Cardápio</h4>
+            <ul>
+              <li><a href="#cardapio">Mais Pedidos</a></li>
+              <li><a href="#combo">Combo da Semana</a></li>
+              <li><a href="#cardapio">Smash Burgers</a></li>
+              <li><a href="#cardapio">Bebidas</a></li>
+            </ul>
+          </div>
+    
+          <div class="rodape-col">
+            <h4>Institucional</h4>
+            <ul>
+              <li><a href="#historia">Nossa História</a></li>
+              <li><a href="#avaliacoes">Avaliações</a></li>
+              <li><a href="#local">Onde Estamos</a></li>
+              <li><a href="#">Trabalhe Conosco</a></li>
+            </ul>
+          </div>
+    
+          <div class="rodape-col">
+            <h4>Atendimento</h4>
+            <ul>
+              <li><span>Ter–Dom · 18h às 23h</span></li>
+              <li><span>(11) 99999-0000</span></li>
+              <li><span>oi@brasaebite.com.br</span></li>
+              <li><span>Rua das Brasas, 123</span></li>
+            </ul>
+          </div>
+    
+        </div>
+    
+        <div class="rodape-bottom">
+          <p>
+            © 2026 Brasa &amp; Bite. Todos os direitos reservados.
+            Feito com <span class="coracao">♥</span> e muita brasa.
+          </p>
+          <span class="pix">
+            💳 Aceitamos Pix, cartão e dinheiro
+          </span>
+        </div>
+    
+      </div>
+    </footer>
+    <!-- ============================================
+     BOTÃO FLUTUANTE DO CARRINHO
+     ============================================ -->
+<button type="button" class="cart-float" id="cartFloat" aria-label="Abrir carrinho de pedidos">
+  <span class="cart-icone" aria-hidden="true">
+    🛒
+    <span class="cart-qtd" id="cartQtdFloat">0</span>
+  </span>
+  <span class="cart-info">
+    <span class="lbl">Ver pedido</span>
+    <span class="total" id="cartTotalFloat">R$ 0,00</span>
+  </span>
+</button>
+
+<!-- ============================================
+     MODAL DE CHECKOUT
+     ============================================ -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+  <div class="modal">
+
+    <div class="modal-header">
+      <h3 id="modalTitulo">SEU PEDIDO 🔥</h3>
+      <button type="button" class="modal-close" id="modalClose" aria-label="Fechar carrinho">✕</button>
+    </div>
+
+    <div class="modal-body">
+
+      <!-- Lista de itens -->
+      <div class="modal-subtitulo">Itens do carrinho</div>
+      <div class="cart-lista" id="cartLista"></div>
+
+      <!-- Formulário de entrega -->
+      <div class="modal-subtitulo">Dados de entrega</div>
+
+      <form id="formPedido" novalidate>
+
+        <div class="form-grid">
+
+          <div class="form-campo full" data-field="nome">
+            <label for="inputNome">Nome completo *</label>
+            <input type="text" id="inputNome" name="nome" placeholder="Ex: João Silva" autocomplete="name">
+            <span class="msg-erro">Informe seu nome</span>
+          </div>
+
+          <div class="form-campo full" data-field="endereco">
+            <label for="inputEndereco">Endereço e número *</label>
+            <input type="text" id="inputEndereco" name="endereco" placeholder="Rua das Flores, 123 - Apto 45" autocomplete="street-address">
+            <span class="msg-erro">Informe o endereço com número</span>
+          </div>
+
+          <div class="form-campo" data-field="bairro">
+            <label for="inputBairro">Bairro *</label>
+            <input type="text" id="inputBairro" name="bairro" placeholder="Centro" autocomplete="address-level3">
+            <span class="msg-erro">Informe o bairro</span>
+          </div>
+
+          <div class="form-campo" data-field="pagamento">
+            <label for="inputPagamento">Pagamento *</label>
+            <select id="inputPagamento" name="pagamento">
+              <option value="">Selecione...</option>
+              <option value="PIX">PIX</option>
+              <option value="Cartão">Cartão (crédito/débito)</option>
+              <option value="Dinheiro">Dinheiro</option>
+            </select>
+            <span class="msg-erro">Escolha uma forma de pagamento</span>
+          </div>
+
+        </div>
+
+      </form>
+    </div>
+
+    <div class="modal-footer">
+      <!-- ============================================
+     CUPOM DE DESCONTO
+     ============================================ -->
+<div class="cupom-box">
+  <input type="text" id="inputCupom" placeholder="Cupom de desconto" maxlength="20">
+  <button type="button" class="btn-cupom" id="btnCupom">Aplicar</button>
+</div>
+<div class="cupom-msg" id="cupomMsg"></div>
+
+      <!-- Resumo do pedido -->
+      <div class="cart-resumo">
+        <div class="linha">
+          <span>Subtotal</span>
+          <span id="resumoSubtotal">R$ 0,00</span>
+        </div>
+        <div class="linha">
+          <span>Taxa de entrega</span>
+          <span id="resumoEntrega">R$ 0,00</span>
+        </div>
+        <div class="linha desconto" id="linhaDesconto" style="display:none;">
+          <span>Desconto <span id="cupomAplicadoLabel"></span></span>
+          <span class="valor" id="resumoDesconto">- R$ 0,00</span>
+        </div>
+        <div class="linha total">
+          <span>TOTAL</span>
+          <span class="valor" id="resumoTotal">R$ 0,00</span>
+        </div>
+      </div>
+
+      <button type="button" class="btn-checkout" id="btnCheckout">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.3 4.7 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2z"/>
+        </svg>
+        FINALIZAR PEDIDO
+      </button>
+    </div>
+
+  </div>
+</div>
+    <!-- ============================================
+         STICKY BAR MOBILE
+         ============================================ -->
+    <div class="sticky-bar" role="region" aria-label="Pedido rápido">
+      <div class="sticky-bar-inner">
+        <div class="sticky-info">
+          <span class="label">Pedido mínimo</span>
+          <span class="valor">R$ 25,00</span>
+        </div>
+        <a href="#cardapio" class="btn-sticky" data-abrir-carrinho>
+          <span aria-hidden="true">🍔</span> PEDIR AGORA
+          <span class="badge-sticky" aria-hidden="true">0</span>
+        </a>
+      </div>
+    </div>
+    <script>
+/* ==========================================================
+   BRASA & BITE — SISTEMA DE PEDIDOS (v3 — CORRIGIDO)
+   ========================================================== */
+
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+
+  console.log('🔥 Brasa & Bite — iniciando sistema...');
+
+  /* ------------------------------------------------------
+     1. CONFIGURAÇÕES
+     ------------------------------------------------------ */
+  const CONFIG = {
+    whatsapp:     '5511999990000',   // ← TROQUE pelo número real
+    taxaEntrega:  8.00,
+    pedidoMinimo: 25.00,
+    moeda:        'pt-BR',
+    storageKey:   'brasa_bite_cart',
+    cupomStorage: 'brasa_bite_cupom',
+    sheetsUrl:    '', // vazio = desativado
+
+    cupons: {
+      'BRASA10':     { tipo: 'percent', valor: 10 },
+      'BITE20':      { tipo: 'percent', valor: 20 },
+      'FRETEGRATIS': { tipo: 'frete',   valor: 0  },
+      'PRIMEIRA5':   { tipo: 'fixo',    valor: 5  }
+    }
+  };
+
+  /* ------------------------------------------------------
+     2. ESTADO
+     ------------------------------------------------------ */
+  let carrinho   = [];
+  let cupomAtivo = null;
+
+  /* ------------------------------------------------------
+     3. HELPERS
+     ------------------------------------------------------ */
+  const formatarMoeda = (v) =>
+    v.toLocaleString(CONFIG.moeda, { style: 'currency', currency: 'BRL' });
+
+  const gerarId = (nome) =>
+    nome.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+
+  const calcularSubtotal = () =>
+    carrinho.reduce((acc, i) => acc + i.preco * i.qtd, 0);
+
+  const calcularQtdTotal = () =>
+    carrinho.reduce((acc, i) => acc + i.qtd, 0);
+
+  const calcularTotais = () => {
+    const subtotal = calcularSubtotal();
+    let   entrega  = carrinho.length > 0 ? CONFIG.taxaEntrega : 0;
+    let   desconto = 0;
+
+    if (cupomAtivo && carrinho.length > 0) {
+      const c = cupomAtivo;
+      if (c.tipo === 'percent') desconto = subtotal * (c.valor / 100);
+      if (c.tipo === 'fixo')    desconto = Math.min(c.valor, subtotal);
+      if (c.tipo === 'frete')   entrega  = 0;
+    }
+
+    const total = Math.max(0, subtotal - desconto + entrega);
+    return { subtotal, entrega, desconto, total };
+  };
+
+  /* ------------------------------------------------------
+     4. PERSISTÊNCIA
+     ------------------------------------------------------ */
+  const salvar = () => {
+    try {
+      localStorage.setItem(CONFIG.storageKey, JSON.stringify(carrinho));
+      localStorage.setItem(CONFIG.cupomStorage, JSON.stringify(cupomAtivo));
+    } catch (e) {}
+  };
+
+  const carregar = () => {
+    try {
+      const c = localStorage.getItem(CONFIG.storageKey);
+      const p = localStorage.getItem(CONFIG.cupomStorage);
+      if (c) carrinho   = JSON.parse(c);
+      if (p) cupomAtivo = JSON.parse(p);
+    } catch (e) { carrinho = []; cupomAtivo = null; }
+  };
+
+  /* ------------------------------------------------------
+     5. AÇÕES DO CARRINHO
+     ------------------------------------------------------ */
+  const adicionarItem = (nome, preco) => {
+    const id = gerarId(nome);
+    const ex = carrinho.find((i) => i.id === id);
+    if (ex) ex.qtd += 1;
+    else carrinho.push({ id, nome, preco, qtd: 1, obs: '' });
+    salvar();
+    renderizarTudo();
+    animarCarrinhoFlutuante();
+  };
+
+  const alterarQtd = (id, delta) => {
+    const item = carrinho.find((i) => i.id === id);
+    if (!item) return;
+    item.qtd += delta;
+    if (item.qtd <= 0) carrinho = carrinho.filter((i) => i.id !== id);
+    salvar();
+    renderizarTudo();
+  };
+
+  const removerItem = (id) => {
+    carrinho = carrinho.filter((i) => i.id !== id);
+    salvar();
+    renderizarTudo();
+  };
+
+  const atualizarObservacao = (id, texto) => {
+    const item = carrinho.find((i) => i.id === id);
+    if (item) { item.obs = texto; salvar(); }
+  };
+
+  /* ------------------------------------------------------
+     6. CUPOM
+     ------------------------------------------------------ */
+  const aplicarCupom = () => {
+    const input = document.getElementById('inputCupom');
+    const msg   = document.getElementById('cupomMsg');
+    const codigo = input.value.trim().toUpperCase();
+
+    if (!codigo) {
+      msg.className = 'cupom-msg erro';
+      msg.textContent = '⚠️ Digite um código de cupom.';
+      return;
+    }
+
+    const cupom = CONFIG.cupons[codigo];
+
+    if (!cupom) {
+      msg.className = 'cupom-msg erro';
+      msg.textContent = `❌ Cupom "${codigo}" inválido ou expirado.`;
+      cupomAtivo = null;
+      salvar();
+      renderizarResumo();
+      return;
+    }
+
+    cupomAtivo = { codigo, ...cupom };
+    salvar();
+    msg.className = 'cupom-msg ok';
+    msg.textContent = `✅ Cupom ${codigo} aplicado!`;
+    input.value = '';
+    input.disabled = true;
+    document.getElementById('btnCupom').disabled = true;
+    renderizarTudo();
+  };
+
+  const removerCupom = () => {
+    cupomAtivo = null;
+    salvar();
+    const input = document.getElementById('inputCupom');
+    const btn   = document.getElementById('btnCupom');
+    const msg   = document.getElementById('cupomMsg');
+    if (input) { input.disabled = false; input.value = ''; }
+    if (btn)   btn.disabled = false;
+    if (msg)   { msg.className = 'cupom-msg'; msg.textContent = ''; }
+    renderizarTudo();
+  };
+
+  /* ------------------------------------------------------
+     7. RENDERIZAÇÃO
+     ------------------------------------------------------ */
+  const renderizarCarrinhoFlutuante = () => {
+    const elFloat  = document.getElementById('cartFloat');
+    const elQtd    = document.getElementById('cartQtdFloat');
+    const elTotal  = document.getElementById('cartTotalFloat');
+    const elSticky = document.querySelector('.badge-sticky');
+
+    if (!elFloat) return;
+
+    const qtd = calcularQtdTotal();
+    const { total } = calcularTotais();
+
+    elFloat.classList.toggle('visible', qtd > 0);
+    if (elQtd)   elQtd.textContent   = qtd;
+    if (elTotal) elTotal.textContent = formatarMoeda(total);
+
+    if (elSticky) {
+      elSticky.textContent = qtd;
+      elSticky.style.display = qtd > 0 ? 'inline-flex' : 'none';
+    }
+  };
+
+  const renderizarListaModal = () => {
+    const lista = document.getElementById('cartLista');
+    if (!lista) return;
+
+    if (carrinho.length === 0) {
+      lista.innerHTML = `
+        <div class="cart-vazio">
+          <span class="emoji">🍔</span>
+          Seu carrinho está vazio.<br>Adicione um burger irresistível!
+        </div>`;
+      return;
+    }
+
+    lista.innerHTML = carrinho.map((item) => `
+      <div class="cart-item" data-id="${item.id}">
+        <div class="cart-item-info">
+          <span class="nome">${item.nome}</span>
+          <span class="preco">${formatarMoeda(item.preco)} × ${item.qtd} = ${formatarMoeda(item.preco * item.qtd)}</span>
+        </div>
+        <div class="cart-item-controles">
+          <button type="button" class="cart-qty-btn" data-acao="menos" data-id="${item.id}" aria-label="Diminuir">−</button>
+          <span class="cart-qty-num">${item.qtd}</span>
+          <button type="button" class="cart-qty-btn" data-acao="mais" data-id="${item.id}" aria-label="Aumentar">+</button>
+        </div>
+        <button type="button" class="cart-remove" data-acao="remover" data-id="${item.id}" aria-label="Remover">🗑️</button>
+
+        <div class="cart-item-obs">
+          <label for="obs-${item.id}">Observações (ex: sem cebola, ponto da carne)</label>
+          <input type="text" id="obs-${item.id}" data-obs-id="${item.id}"
+                 placeholder="Alguma observação?"
+                 value="${(item.obs || '').replace(/"/g, '&quot;')}" maxlength="120">
+        </div>
+      </div>
+    `).join('');
+  };
+
+  const renderizarResumo = () => {
+    const { subtotal, entrega, desconto, total } = calcularTotais();
+
+    const elSub = document.getElementById('resumoSubtotal');
+    const elEnt = document.getElementById('resumoEntrega');
+    const elTot = document.getElementById('resumoTotal');
+    const elBtn = document.getElementById('btnCheckout');
+
+    if (elSub) elSub.textContent = formatarMoeda(subtotal);
+    if (elEnt) elEnt.textContent = entrega === 0
+      ? (carrinho.length > 0 ? 'Grátis 🎉' : 'R$ 0,00')
+      : formatarMoeda(entrega);
+    if (elTot) elTot.textContent = formatarMoeda(total);
+
+    const linhaDesc = document.getElementById('linhaDesconto');
+    if (linhaDesc) {
+      if (desconto > 0 || (cupomAtivo && cupomAtivo.tipo === 'frete')) {
+        linhaDesc.style.display = 'flex';
+        const elDesc = document.getElementById('resumoDesconto');
+        const elLbl  = document.getElementById('cupomAplicadoLabel');
+        if (elDesc) elDesc.textContent = '- ' + formatarMoeda(desconto);
+        if (elLbl)  elLbl.textContent  = cupomAtivo ? `(${cupomAtivo.codigo})` : '';
+      } else {
+        linhaDesc.style.display = 'none';
+      }
+    }
+
+    if (elBtn) elBtn.disabled = carrinho.length === 0;
+    if (carrinho.length === 0 && cupomAtivo) removerCupom();
+  };
+
+  const renderizarTudo = () => {
+    renderizarCarrinhoFlutuante();
+    renderizarListaModal();
+    renderizarResumo();
+  };
+
+  /* ------------------------------------------------------
+     8. MODAL & ANIMAÇÃO
+     ------------------------------------------------------ */
+  const animarCarrinhoFlutuante = () => {
+    const el = document.getElementById('cartFloat');
+    if (!el) return;
+    el.style.animation = 'none';
+    void el.offsetWidth;
+    el.style.animation = 'cartPop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1)';
+  };
+
+  const abrirModal = () => {
+    const overlay = document.getElementById('modalOverlay');
+    if (!overlay) return;
+    overlay.classList.add('visible');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const fecharModal = () => {
+    const overlay = document.getElementById('modalOverlay');
+    if (!overlay) return;
+    overlay.classList.remove('visible');
+    document.body.style.overflow = 'auto';
+  };
+    /* Fechar modal — delegação de eventos (à prova de recriação) */
+document.addEventListener('click', (e) => {
+
+// Botão ✕ dentro do modal
+if (e.target.closest('#modalClose')) {
+  console.log('❌ Fechar via botão ✕');
+  fecharModal();
+  return;
+}
+
+// Clique no overlay (fundo escuro) — só fecha se clicou FORA do modal
+if (e.target.id === 'modalOverlay') {
+  console.log('❌ Fechar via clique no fundo');
+  fecharModal();
+}
+});
+
+// ESC também fecha
+document.addEventListener('keydown', (e) => {
+if (e.key === 'Escape') {
+  const modalAberto = document.getElementById('modalOverlay')?.classList.contains('visible');
+  if (modalAberto) {
+    console.log('❌ Fechar via ESC');
+    fecharModal();
+  }
+}
+});
+
+  /* ------------------------------------------------------
+     9. VALIDAÇÃO
+     ------------------------------------------------------ */
+  const validarFormulario = () => {
+    const campos = [
+      { id: 'inputNome',      chave: 'nome' },
+      { id: 'inputEndereco',  chave: 'endereco' },
+      { id: 'inputBairro',    chave: 'bairro' },
+      { id: 'inputPagamento', chave: 'pagamento' }
+    ];
+
+    let valido = true;
+    const dados = {};
+
+    campos.forEach(({ id, chave }) => {
+      const input = document.getElementById(id);
+      if (!input) return;
+      const wrapper = input.closest('.form-campo');
+      const valor = input.value.trim();
+
+      if (!valor) {
+        wrapper?.classList.add('erro');
+        valido = false;
+      } else {
+        wrapper?.classList.remove('erro');
+        dados[chave] = valor;
+      }
+    });
+
+    return valido ? dados : null;
+  };
+
+  /* ------------------------------------------------------
+     10. MENSAGEM
+     ------------------------------------------------------ */
+  const montarMensagem = (dados) => {
+    const { subtotal, entrega, desconto, total } = calcularTotais();
+
+    let msg = '🍔 *NOVO PEDIDO - Brasa & Bite*\n\n';
+    msg += '📋 *Itens:*\n';
+    carrinho.forEach((item) => {
+      msg += `• ${item.qtd}x ${item.nome} — ${formatarMoeda(item.preco * item.qtd)}\n`;
+      if (item.obs && item.obs.trim()) {
+        msg += `   📝 _${item.obs.trim()}_\n`;
+      }
+    });
+
+    msg += '\n👤 *Cliente:* ' + dados.nome + '\n';
+    msg += '📍 *Endereço:* ' + dados.endereco + ' — ' + dados.bairro + '\n';
+    msg += '💳 *Pagamento:* ' + dados.pagamento + '\n';
+    if (cupomAtivo) msg += '🎟️ *Cupom:* ' + cupomAtivo.codigo + '\n';
+
+    msg += '\n———————————————\n';
+    msg += 'Subtotal: ' + formatarMoeda(subtotal) + '\n';
+    if (desconto > 0) msg += 'Desconto: -' + formatarMoeda(desconto) + '\n';
+    msg += 'Entrega: '  + (entrega === 0 ? 'Grátis 🎉' : formatarMoeda(entrega)) + '\n';
+    msg += '*TOTAL: '   + formatarMoeda(total) + '*\n';
+    msg += '———————————————\n\n';
+    msg += '🔥 _Pedido enviado pelo site Brasa & Bite_';
+
+    return msg;
+  };
+  const mostrarToast = (msg) => {
+  const el = document.getElementById('toast');
+  if (!el) return;
+  el.textContent = msg;
+  el.classList.add('visible');
+  clearTimeout(el._timer);
+  el._timer = setTimeout(() => el.classList.remove('visible'), 3500);
+};
+
+  /* ------------------------------------------------------
+     11. ENVIO
+     ------------------------------------------------------ */
+  const enviarPedido = () => {
+    console.log('🚀 Finalizar clicado');
+
+    const dados = validarFormulario();
+    if (!dados) {
+      const erro = document.querySelector('.form-campo.erro');
+      erro?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      erro?.querySelector('input, select')?.focus();
+      return;
+    }
+
+    const { subtotal } = calcularTotais();
+    if (subtotal < CONFIG.pedidoMinimo) {
+      alert(`Pedido mínimo de ${formatarMoeda(CONFIG.pedidoMinimo)}. Faltam ${formatarMoeda(CONFIG.pedidoMinimo - subtotal)}.`);
+      return;
+    }
+
+    const mensagem = montarMensagem(dados);
+    const url = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(mensagem)}`;
+    console.log('📱 Abrindo WhatsApp:', url);
+
+    window.open(url, '_blank', 'noopener');
+
+    carrinho = [];
+    cupomAtivo = null;
+    salvar();
+    renderizarTudo();
+    fecharModal();
+
+    setTimeout(() => mostrarToast('✅ Pedido enviado! Continue no WhatsApp.'), 300);
+  };
+
+  /* ------------------------------------------------------
+     12. EVENTOS
+     ------------------------------------------------------ */
+
+  // Botões Adicionar
+  const botoes = document.querySelectorAll('.btn-add');
+  console.log('🍔 Botões encontrados:', botoes.length);
+
+  botoes.forEach((botao) => {
+    botao.addEventListener('click', () => {
+      const nome  = botao.dataset.produto;
+      const preco = parseFloat(botao.dataset.preco);
+
+      if (!nome || isNaN(preco)) {
+        console.warn('⚠️ Botão sem data-produto/data-preco:', botao);
+        return;
+      }
+
+      adicionarItem(nome, preco);
+
+      const original = botao.innerHTML;
+      botao.classList.add('adicionado');
+      botao.innerHTML = '✓ Adicionado';
+      setTimeout(() => {
+        botao.classList.remove('adicionado');
+        botao.innerHTML = original;
+      }, 1400);
+
+      if (navigator.vibrate) navigator.vibrate(15);
+    });
+  });
+
+  // +, -, remover
+  document.getElementById('cartLista')?.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-acao]');
+    if (!btn) return;
+    const { acao, id } = btn.dataset;
+    if (acao === 'mais')    alterarQtd(id, +1);
+    if (acao === 'menos')   alterarQtd(id, -1);
+    if (acao === 'remover') removerItem(id);
+  });
+
+  // Observações
+  document.getElementById('cartLista')?.addEventListener('input', (e) => {
+    const input = e.target.closest('input[data-obs-id]');
+    if (input) atualizarObservacao(input.dataset.obsId, input.value);
+  });
+
+  // Cupom
+  document.getElementById('btnCupom')?.addEventListener('click', aplicarCupom);
+  document.getElementById('inputCupom')?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); aplicarCupom(); }
+  });
+
+  // Checkout
+  document.getElementById('btnCheckout')?.addEventListener('click', enviarPedido);
+
+  /* ------------------------------------------------------
+     13. INIT
+     ------------------------------------------------------ */
+  carregar();
+
+  if (cupomAtivo) {
+    const input = document.getElementById('inputCupom');
+    const btn   = document.getElementById('btnCupom');
+    const msg   = document.getElementById('cupomMsg');
+    if (input) input.disabled = true;
+    if (btn)   btn.disabled = true;
+    if (msg)   {
+      msg.className = 'cupom-msg ok';
+      msg.textContent = `✅ Cupom ${cupomAtivo.codigo} aplicado!`;
+    }
+  }
+
+  renderizarTudo();
+  console.log('✅ Sistema pronto. Total de botões:', botoes.length);
+  document.querySelectorAll('[data-abrir-carrinho]').forEach((cta) => {
+  cta.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    // Se o carrinho estiver vazio, rola até o cardápio
+    if (carrinho.length === 0) {
+      document.getElementById('cardapio')?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+      console.log('🛒 Carrinho vazio — rolando até o cardápio');
+      return;
+    }
+
+      // Se tem itens, abre o modal
+      abrirModal();
+    console.log('🛒 Abrindo carrinho com', carrinho.length, 'item(ns)');
+  });
+  });
+});                                    // ← fecha o DOMContentLoaded (faltava!)
+</script>
+
+<!-- TOAST DE FEEDBACK (fora do script!) -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>

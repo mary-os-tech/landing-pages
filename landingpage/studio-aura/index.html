@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clínica Lumière — Estética Avançada</title>
+
+  <!-- Fontes: Serif para títulos, Sans para corpo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__container">
+
+      <!-- Coluna de texto -->
+      <div class="hero__content">
+        <span class="hero__badge">
+          <span class="hero__badge-dot"></span>
+          Agenda aberta · Avaliação gratuita
+        </span>
+
+        <h1 id="hero-title" class="hero__title">
+          Sua beleza não precisa de exageros.
+          <em>Precisa de um plano feito para você.</em>
+        </h1>
+
+        <p class="hero__subtitle">
+          Avaliação gratuita e sem compromisso. Descubra o protocolo exato
+          para a sua pele — sem promessas irreais, sem pressão de venda.
+        </p>
+
+        <div class="hero__actions">
+          <a href="#agendar" class="btn btn--primary">
+            Agendar avaliação gratuita
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#servicos" class="btn btn--ghost">Conhecer protocolos</a>
+        </div>
+
+        <ul class="hero__trust" aria-label="Provas de confiança">
+          <li>
+            <span class="hero__stars" aria-hidden="true">★★★★★</span>
+            <strong>4,9</strong>
+            <span>· +800 avaliações Google</span>
+          </li>
+          <li class="hero__trust-divider" aria-hidden="true"></li>
+          <li>
+            <strong>Dra. Marina Costa</strong>
+            <span>· CRM 123.456</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Coluna visual -->
+      <div class="hero__visual">
+        <div class="hero__image-wrapper">
+          <img
+            src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=900&q=80"
+            alt="Mulher com pele saudável em luz natural"
+            class="hero__image"
+            loading="eager"
+          />
+          <div class="hero__floating-card">
+            <span class="hero__floating-icon" aria-hidden="true">✦</span>
+            <div>
+              <strong>+2.500</strong>
+              <small>procedimentos realizados</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Barra de prova social -->
+    <div class="social-bar">
+      <div class="social-bar__inner">
+        <span><strong>+2.500</strong> procedimentos</span>
+        <span><strong>97%</strong> de satisfação</span>
+        <span><strong>ANVISA</strong> certificado</span>
+        <span><strong>+10 anos</strong> de experiência</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       SEÇÃO DE SERVIÇOS
+       ============================================ -->
+  <section class="services" id="servicos" aria-labelledby="services-title">
+    <div class="services__container">
+
+      <header class="services__header">
+        <span class="section-tag">Nossos protocolos</span>
+        <h2 id="services-title" class="services__title">
+          Tratamentos que respeitam o seu tempo e a sua pele
+        </h2>
+        <p class="services__subtitle">
+          Cada protocolo é personalizado após avaliação. Nada de pacotes
+          prontos — apenas o que a sua pele realmente precisa.
+        </p>
+      </header>
+
+      <div class="services__grid">
+
+        <!-- Card 1 -->
+        <article class="service-card">
+          <div class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title">Harmonização Facial</h3>
+          <p class="service-card__text">
+            Realce natural dos seus traços, sem exageros. O objetivo é você,
+            só que com mais confiança.
+          </p>
+          <ul class="service-card__list">
+            <li>Preenchimento labial</li>
+            <li>Contorno mandibular</li>
+            <li>Rinomodelação</li>
+          </ul>
+          <a href="#agendar" class="service-card__link">
+            Saber mais
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- Card 2 (destaque) -->
+        <article class="service-card service-card--featured">
+          <span class="service-card__ribbon">Mais procurado</span>
+          <div class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 2C8 6 5 9 5 13a7 7 0 0 0 14 0c0-4-3-7-7-11z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title">Skinbooster & Bioestimuladores</h3>
+          <p class="service-card__text">
+            Hidratação e firmeza de dentro para fora. Resultado gradual e
+            natural a partir de 30 dias.
+          </p>
+          <ul class="service-card__list">
+            <li>Ácido hialurônico injetável</li>
+            <li>Bioestimulador de colágeno</li>
+            <li>Microagulhamento</li>
+          </ul>
+          <a href="#agendar" class="service-card__link">
+            Saber mais
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="service-card">
+          <div class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title">Limpeza de Pele Profunda</h3>
+          <p class="service-card__text">
+            Pele renovada, viçosa e sem impurezas. O primeiro passo para
+            qualquer protocolo de skincare.
+          </p>
+          <ul class="service-card__list">
+            <li>Extração e higienização</li>
+            <li>Peeling de diamante</li>
+            <li>Máscara calmante</li>
+          </ul>
+          <a href="#agendar" class="service-card__link">
+            Saber mais
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+
+      </div>
+
+      <div class="services__cta">
+        <p>Não sabe qual é o ideal para você?</p>
+        <a href="#agendar" class="btn btn--primary">
+          Descobrir em uma avaliação gratuita
+        </a>
+      </div>
+
+    </div>
+  </section>
+  <!-- ============================================
+     BARRA DE PROVA SOCIAL
+     ============================================ -->
+<section class="proof-bar" aria-label="Provas de confiança do Studio Aura">
+    <div class="proof-bar__inner">
+      <div class="proof-bar__item">
+        <strong class="proof-bar__number">+2.500</strong>
+        <span class="proof-bar__label">procedimentos realizados</span>
+      </div>
+      <div class="proof-bar__item">
+        <strong class="proof-bar__number">97%</strong>
+        <span class="proof-bar__label">de satisfação</span>
+      </div>
+      <div class="proof-bar__item">
+        <strong class="proof-bar__number">+10</strong>
+        <span class="proof-bar__label">anos de experiência</span>
+      </div>
+      <div class="proof-bar__item">
+        <strong class="proof-bar__number">ANVISA</strong>
+        <span class="proof-bar__label">produtos certificados</span>
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- ============================================
+       SEÇÃO DE DOR E EMPATIA (BENTO GRID)
+       ============================================ -->
+  <section class="pain" aria-labelledby="pain-title">
+    <div class="pain__container">
+  
+      <header class="pain__header">
+        <span class="section-tag">Antes de decidir</span>
+        <h2 id="pain-title" class="pain__title">
+          Você já pensou em fazer algo,<br />
+          mas <em>travou na dúvida?</em>
+        </h2>
+        <p class="pain__subtitle">
+          Esses são os três medos que mais escutamos. E é exatamente por isso
+          que a nossa primeira consulta é gratuita — para você decidir com clareza.
+        </p>
+      </header>
+  
+      <div class="bento">
+  
+        <!-- Card grande (destaque) -->
+        <article class="bento__card bento__card--lg">
+          <div class="bento__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 21s-7-4.5-9-9a5.5 5.5 0 0 1 9-6 5.5 5.5 0 0 1 9 6c-2 4.5-9 9-9 9z"/>
+            </svg>
+          </div>
+          <h3 class="bento__title">“Tenho medo de ficar artificial.”</h3>
+          <p class="bento__text">
+            Nosso princípio é o <strong>realce natural</strong>. Respeitamos
+            a sua estrutura facial e a sua expressão. O objetivo é você — só
+            que com mais confiança no espelho.
+          </p>
+          <span class="bento__tag">Nosso compromisso</span>
+        </article>
+  
+        <!-- Card padrão -->
+        <article class="bento__card">
+          <div class="bento__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3l8 4v5c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7l8-4z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3 class="bento__title">“Não sei se é seguro.”</h3>
+          <p class="bento__text">
+            Todos os protocolos são executados por profissionais certificados,
+            com produtos aprovados pela <strong>ANVISA</strong> e ambiente com
+            higienização hospitalar.
+          </p>
+        </article>
+  
+        <!-- Card padrão -->
+        <article class="bento__card">
+          <div class="bento__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M4 4l16 16"/>
+            </svg>
+          </div>
+          <h3 class="bento__title">“Vi resultados irreais na internet.”</h3>
+          <p class="bento__text">
+            Aqui você vê <strong>antes e depois de clientes reais</strong>, sem
+            filtro e sem edição. Se um protocolo não for indicado para você,
+            nós dizemos com honestidade.
+          </p>
+        </article>
+  
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- ============================================
+       SEÇÃO DO MECANISMO CIENTÍFICO
+       ============================================ -->
+  <section class="mechanism" aria-labelledby="mechanism-title">
+    <div class="mechanism__container">
+  
+      <div class="mechanism__grid">
+  
+        <!-- Coluna de texto -->
+        <div class="mechanism__content">
+          <span class="section-tag">Como funciona</span>
+          <h2 id="mechanism-title" class="mechanism__title">
+            Não vendemos milagres.<br />
+            <em>Explicamos o porquê.</em>
+          </h2>
+          <p class="mechanism__text">
+            Nosso protocolo atua diretamente na <strong>estrutura da pele</strong>,
+            estimulando a produção natural de colágeno e ácido hialurônico. O
+            resultado aparece de forma <strong>gradual e natural</strong> —
+            você não muda de rosto, sua pele simplesmente fica mais saudável.
+          </p>
+  
+          <div class="mechanism__stats">
+            <div>
+              <strong>30–60</strong>
+              <span>dias para o resultado pleno</span>
+            </div>
+            <div>
+              <strong>0</strong>
+              <span>dias de downtime na maioria dos casos</span>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Coluna de passos -->
+        <ol class="steps" aria-label="Etapas do tratamento">
+          <li class="step">
+            <span class="step__number" aria-hidden="true">01</span>
+            <div class="step__body">
+              <h3 class="step__title">Avaliação personalizada</h3>
+              <p class="step__text">
+                Analisamos a sua pele, o seu histórico e o seu objetivo real.
+                Sem receita de bolo.
+              </p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__number" aria-hidden="true">02</span>
+            <div class="step__body">
+              <h3 class="step__title">Protocolo sob medida</h3>
+              <p class="step__text">
+                Definimos o ativo, a técnica e a quantidade exata para o seu caso.
+                Nada além do necessário.
+              </p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__number" aria-hidden="true">03</span>
+            <div class="step__body">
+              <h3 class="step__title">Resultado natural e gradual</h3>
+              <p class="step__text">
+                A pele responde de dentro para fora. Em 30 a 60 dias você
+                percebe — e as pessoas ao redor, também.
+              </p>
+            </div>
+          </li>
+        </ol>
+  
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- ============================================
+       SEÇÃO DE RESULTADOS REAIS (ANTES / DEPOIS)
+       ============================================ -->
+       <section class="results" aria-labelledby="results-title">
+        <div class="results__container">
+      
+          <header class="results__header">
+            <span class="section-tag">Em breve</span>
+            <h2 id="results-title" class="results__title">
+              Resultados reais <em>em breve.</em>
+            </h2>
+            <p class="results__subtitle">
+              Estamos preparando uma galeria com antes e depois de clientes reais,
+              com autorização de imagem. Enquanto isso, você pode ver os resultados
+              pessoalmente na avaliação gratuita.
+            </p>
+          </header>
+      
+          <div class="results__placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="3"/>
+              <circle cx="8.5" cy="9" r="1.5"/>
+              <path d="M21 15l-5-5-11 11"/>
+            </svg>
+            <p>Galeria em produção</p>
+            <span>Volte em breve</span>
+          </div>
+      
+          <div class="results__cta-inline">
+            <p>Quer ver resultados ao vivo?</p>
+            <a href="#agendar" class="btn btn--primary" data-open-booking>
+              Agendar avaliação gratuita
+            </a>
+          </div>
+      
+        </div>
+      </section>
+  
+      <p class="results__disclaimer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M12 8v5M12 16h.01"/>
+        </svg>
+        Imagens de pacientes reais, publicadas com autorização. Resultados
+        podem variar conforme características individuais, protocolo e
+        resposta biológica de cada pele.
+      </p>
+  
+    </div>
+  </section>
+  <!-- ============================================
+     SEÇÃO DE AUTORIDADE (EQUIPE)
+     ============================================ -->
+<section class="authority" aria-labelledby="authority-title">
+    <div class="authority__container">
+  
+      <div class="authority__grid">
+  
+        <!-- Foto -->
+        <div class="authority__visual">
+          <div class="authority__image-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
+              alt="Dra. Marina Costa, responsável técnica do Studio Aura"
+              class="authority__image"
+              loading="lazy"
+            />
+            <div class="authority__badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <path d="M12 3l8 4v5c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7l8-4z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+              <div>
+                <strong>Responsável Técnica</strong>
+                <small>Registro ativo · ANVISA</small>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Conteúdo -->
+        <div class="authority__content">
+          <span class="section-tag">Quem cuida de você</span>
+  
+          <h2 id="authority-title" class="authority__title">
+            Dra. Marina Costa
+          </h2>
+  
+          <p class="authority__role">
+            Biomédica Esteta · CRBM 12.345 · Especialista em Harmonização Facial
+          </p>
+  
+          <blockquote class="authority__quote">
+            “Meu compromisso não é te transformar em outra pessoa. É fazer você
+            se reconhecer no espelho com mais confiança — respeitando os seus
+            traços e o seu tempo.”
+          </blockquote>
+  
+          <ul class="authority__credentials">
+            <li>
+              <span class="authority__check" aria-hidden="true">✓</span>
+              Pós-graduada em Estética Avançada
+            </li>
+            <li>
+              <span class="authority__check" aria-hidden="true">✓</span>
+              Formação em Harmonização Orofacial
+            </li>
+            <li>
+              <span class="authority__check" aria-hidden="true">✓</span>
+              Produtos com registro ANVISA
+            </li>
+            <li>
+              <span class="authority__check" aria-hidden="true">✓</span>
+              +10 anos de experiência clínica
+            </li>
+          </ul>
+  
+          <a href="#agendar" class="btn btn--primary">
+            Agendar com a Dra. Marina
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- ============================================
+       SEÇÃO DE DEPOIMENTOS
+       ============================================ -->
+  <section class="testimonials" aria-labelledby="testimonials-title">
+    <div class="testimonials__container">
+  
+      <header class="testimonials__header">
+        <span class="section-tag">O que dizem por aí</span>
+        <h2 id="testimonials-title" class="testimonials__title">
+          Histórias reais de quem<br />
+          <em>confiou no processo.</em>
+        </h2>
+        <div class="testimonials__rating">
+          <span class="testimonials__stars" aria-hidden="true">★★★★★</span>
+          <strong>4,9</strong>
+          <span>· mais de 800 avaliações no Google</span>
+        </div>
+      </header>
+  
+      <div class="testimonials__grid">
+  
+        <!-- Card 1 -->
+        <article class="testimonial">
+          <header class="testimonial__head">
+            <div class="testimonial__avatar" aria-hidden="true">CR</div>
+            <div>
+              <strong class="testimonial__name">Camila R.</strong>
+              <span class="testimonial__city">Curitiba · PR</span>
+            </div>
+            <svg class="testimonial__google" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#4285F4" d="M22.5 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h5.9c-.3 1.4-1 2.6-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/>
+              <path fill="#34A853" d="M12 23c2.9 0 5.4-1 7.2-2.6l-3.6-2.8c-1 .7-2.2 1-3.6 1-2.8 0-5.1-1.9-6-4.4H2.4v2.8C4.2 20.5 7.8 23 12 23z"/>
+              <path fill="#FBBC05" d="M6 14.2c-.2-.7-.3-1.4-.3-2.2s.1-1.5.3-2.2V7H2.4C1.7 8.5 1.3 10.2 1.3 12s.4 3.5 1.1 5l3.6-2.8z"/>
+              <path fill="#EA4335" d="M12 5.4c1.6 0 3 .5 4.1 1.6l3.1-3.1C17.4 2.1 14.9 1 12 1 7.8 1 4.2 3.5 2.4 7l3.6 2.8c.9-2.5 3.2-4.4 6-4.4z"/>
+            </svg>
+          </header>
+          <p class="testimonial__text">
+            “Eu tinha muito medo de fazer preenchimento e ficar com ‘cara de
+            pato’. A Dra. foi super honesta sobre o que eu precisava e o que eu
+            NÃO precisava. Resultado: ninguém percebeu que fiz algo, só
+            elogiam.”
+          </p>
+          <footer class="testimonial__foot">
+            <span class="testimonial__stars-sm" aria-hidden="true">★★★★★</span>
+            <span class="testimonial__service">Harmonização Facial</span>
+          </footer>
+        </article>
+  
+        <!-- Card 2 -->
+        <article class="testimonial">
+          <header class="testimonial__head">
+            <div class="testimonial__avatar" aria-hidden="true">FL</div>
+            <div>
+              <strong class="testimonial__name">Fernanda L.</strong>
+              <span class="testimonial__city">Sorocaba · SP</span>
+            </div>
+            <svg class="testimonial__google" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#4285F4" d="M22.5 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h5.9c-.3 1.4-1 2.6-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/>
+              <path fill="#34A853" d="M12 23c2.9 0 5.4-1 7.2-2.6l-3.6-2.8c-1 .7-2.2 1-3.6 1-2.8 0-5.1-1.9-6-4.4H2.4v2.8C4.2 20.5 7.8 23 12 23z"/>
+              <path fill="#FBBC05" d="M6 14.2c-.2-.7-.3-1.4-.3-2.2s.1-1.5.3-2.2V7H2.4C1.7 8.5 1.3 10.2 1.3 12s.4 3.5 1.1 5l3.6-2.8z"/>
+              <path fill="#EA4335" d="M12 5.4c1.6 0 3 .5 4.1 1.6l3.1-3.1C17.4 2.1 14.9 1 12 1 7.8 1 4.2 3.5 2.4 7l3.6 2.8c.9-2.5 3.2-4.4 6-4.4z"/>
+            </svg>
+          </header>
+          <p class="testimonial__text">
+            “Ambiente impecável, equipe atenciosa. Fiz skinbooster e o resultado
+            apareceu em 3 semanas. Recomendo de olhos fechados — inclusive pra
+            quem tem medo, como eu tinha.”
+          </p>
+          <footer class="testimonial__foot">
+            <span class="testimonial__stars-sm" aria-hidden="true">★★★★★</span>
+            <span class="testimonial__service">Skinbooster</span>
+          </footer>
+        </article>
+  
+        <!-- Card 3 -->
+        <article class="testimonial">
+          <header class="testimonial__head">
+            <div class="testimonial__avatar" aria-hidden="true">JP</div>
+            <div>
+              <strong class="testimonial__name">Juliana P.</strong>
+              <span class="testimonial__city">Campinas · SP</span>
+            </div>
+            <svg class="testimonial__google" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#4285F4" d="M22.5 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h5.9c-.3 1.4-1 2.6-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/>
+              <path fill="#34A853" d="M12 23c2.9 0 5.4-1 7.2-2.6l-3.6-2.8c-1 .7-2.2 1-3.6 1-2.8 0-5.1-1.9-6-4.4H2.4v2.8C4.2 20.5 7.8 23 12 23z"/>
+              <path fill="#FBBC05" d="M6 14.2c-.2-.7-.3-1.4-.3-2.2s.1-1.5.3-2.2V7H2.4C1.7 8.5 1.3 10.2 1.3 12s.4 3.5 1.1 5l3.6-2.8z"/>
+              <path fill="#EA4335" d="M12 5.4c1.6 0 3 .5 4.1 1.6l3.1-3.1C17.4 2.1 14.9 1 12 1 7.8 1 4.2 3.5 2.4 7l3.6 2.8c.9-2.5 3.2-4.4 6-4.4z"/>
+            </svg>
+          </header>
+          <p class="testimonial__text">
+            “Fui em outra clínica antes e me senti pressionada a fazer coisas que
+            não precisava. Aqui foi o contrário: a Dra. me explicou tudo com
+            calma e me indicou só um procedimento. Confiança total.”
+          </p>
+          <footer class="testimonial__foot">
+            <span class="testimonial__stars-sm" aria-hidden="true">★★★★★</span>
+            <span class="testimonial__service">Limpeza de Pele</span>
+          </footer>
+        </article>
+  
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- ============================================
+       SEÇÃO FAQ (ACCORDION)
+       ============================================ -->
+  <section class="faq" aria-labelledby="faq-title">
+    <div class="faq__container">
+  
+      <header class="faq__header">
+        <span class="section-tag">Dúvidas frequentes</span>
+        <h2 id="faq-title" class="faq__title">
+          Perguntas que você<br />
+          <em>provavelmente está se fazendo.</em>
+        </h2>
+        <p class="faq__subtitle">
+          Se a sua dúvida não estiver aqui, é só chamar no WhatsApp — a gente
+          responde de verdade.
+        </p>
+      </header>
+  
+      <div class="faq__list" role="list">
+  
+        <details class="faq-item" role="listitem">
+          <summary class="faq-item__question">
+            <span>Dói?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-item__answer">
+            <p>
+              A maioria das clientes descreve como um leve desconforto,
+              totalmente tolerável. Usamos anestésico tópico quando necessário
+              e o procedimento é rápido — em média 30 a 50 minutos.
+            </p>
+          </div>
+        </details>
+  
+        <details class="faq-item" role="listitem">
+          <summary class="faq-item__question">
+            <span>Quanto tempo dura o resultado?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-item__answer">
+            <p>
+              Depende do protocolo. Bioestimuladores costumam durar de 12 a 18
+              meses; preenchimentos de ácido hialurônico, de 8 a 12 meses.
+              Na consulta te damos uma estimativa personalizada com base no seu
+              caso.
+            </p>
+          </div>
+        </details>
+  
+        <details class="faq-item" role="listitem">
+          <summary class="faq-item__question">
+            <span>Vou ficar com aparência artificial?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-item__answer">
+            <p>
+              Nosso princípio é o realce natural. Se, na avaliação, entendermos
+              que um procedimento não é o ideal para você — ou que vai te deixar
+              com um aspecto que não combina com a sua expressão — nós dizemos
+              com honestidade. Nosso compromisso é com o seu resultado, não com
+              a sua venda.
+            </p>
+          </div>
+        </details>
+  
+        <details class="faq-item" role="listitem">
+          <summary class="faq-item__question">
+            <span>Qual o valor?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-item__answer">
+            <p>
+              O investimento varia conforme o protocolo indicado na avaliação.
+              Por isso a primeira consulta é gratuita — para você entender o que
+              a sua pele precisa e decidir com clareza, sem pressão.
+            </p>
+          </div>
+        </details>
+  
+        <details class="faq-item" role="listitem">
+          <summary class="faq-item__question">
+            <span>Posso voltar ao trabalho no mesmo dia?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-item__answer">
+            <p>
+              Sim. Na maioria dos nossos procedimentos não há downtime. É
+              possível que apareçam pequenos inchaços ou vermelhidão nas
+              primeiras 24 a 48 horas — algo facilmente disfarçável com uma
+              base leve.
+            </p>
+          </div>
+        </details>
+  
+        <details class="faq-item" role="listitem">
+          <summary class="faq-item__question">
+            <span>Vocês parcelam?</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-item__answer">
+            <p>
+              Sim — parcelamos em até 12x no cartão de crédito, e temos
+              condições especiais para pagamento à vista. Todas as opções são
+              apresentadas no momento da consulta, com total transparência.
+            </p>
+          </div>
+        </details>
+  
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- ============================================
+       CTA FINAL + RODAPÉ
+       ============================================ -->
+  <section class="final-cta" id="agendar" aria-labelledby="final-cta-title">
+    <div class="final-cta__container">
+  
+      <div class="final-cta__card">
+        <span class="final-cta__eyebrow">Última chamada</span>
+  
+        <h2 id="final-cta-title" class="final-cta__title">
+          Sua pele não precisa<br />
+          esperar <em>mais uma segunda-feira.</em>
+        </h2>
+  
+        <p class="final-cta__text">
+          Agende sua avaliação gratuita. Sem compromisso, sem pressão e sem
+          discurso de venda. Você sai da consulta entendendo exatamente o que a
+          sua pele precisa — e, principalmente, o que ela <strong>não</strong>
+          precisa.
+        </p>
+  
+        <div class="final-cta__actions">
+          <a href="https://wa.me/5515999999999" class="btn btn--primary btn--lg">
+            Quero agendar pelo WhatsApp
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="tel:+551533334444" class="btn btn--ghost btn--lg">
+            Ligar: (15) 3333-4444
+          </a>
+        </div>
+  
+        <ul class="final-cta__promises">
+          <li>
+            <span class="final-cta__check" aria-hidden="true">✓</span>
+            Avaliação sem custo
+          </li>
+          <li>
+            <span class="final-cta__check" aria-hidden="true">✓</span>
+            Atendimento no mesmo dia
+          </li>
+          <li>
+            <span class="final-cta__check" aria-hidden="true">✓</span>
+            Sem compromisso de compra
+          </li>
+        </ul>
+      </div>
+  
+    </div>
+  </section>
+  
+  <footer class="site-footer" aria-labelledby="footer-title">
+    <div class="site-footer__container">
+  
+      <h2 id="footer-title" class="sr-only">Informações do Studio Aura</h2>
+  
+      <div class="site-footer__grid">
+  
+        <!-- Coluna da marca -->
+        <div class="footer-col">
+          <div class="footer-brand">
+            <span class="footer-brand__mark" aria-hidden="true">✦</span>
+            <span class="footer-brand__name">Studio Aura</span>
+          </div>
+          <p class="footer-brand__tagline">
+            Estética avançada com foco em realce natural e segurança clínica.
+            Cada rosto é único — o seu protocolo também.
+          </p>
+  
+          <div class="footer-social" aria-label="Redes sociais">
+            <a href="#" aria-label="Instagram" class="footer-social__link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="WhatsApp" class="footer-social__link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12a9 9 0 1 1-3.5-7.1L21 4l-1 3.5A9 9 0 0 1 21 12z"/>
+                <path d="M8.5 9.5c0 3 2.5 5.5 5.5 5.5l1-2-2-1-1 1c-1-.5-1.5-1-2-2l1-1-1-2-2 1z" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Google Maps" class="footer-social__link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s7-7 7-12a7 7 0 1 0-14 0c0 5 7 12 7 12z"/>
+                <circle cx="12" cy="10" r="2.5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+  
+        <!-- Coluna de contato -->
+        <div class="footer-col">
+          <h3 class="footer-col__title">Contato</h3>
+          <ul class="footer-list">
+            <li>
+              <span class="footer-list__label">Endereço</span>
+              <span>
+                Av. Antônio Carlos Comitre, 1200<br />
+                Campolim · Sorocaba · SP<br />
+                CEP 18047-620
+              </span>
+            </li>
+            <li>
+              <span class="footer-list__label">Telefone</span>
+              <a href="tel:+551533334444">(15) 3333-4444</a>
+            </li>
+            <li>
+              <span class="footer-list__label">WhatsApp</span>
+              <a href="https://wa.me/5515999999999">(15) 99999-9999</a>
+            </li>
+            <li>
+              <span class="footer-list__label">E-mail</span>
+              <a href="mailto:contato@studioaura.com.br">contato@studioaura.com.br</a>
+            </li>
+          </ul>
+        </div>
+  
+        <!-- Coluna de horários -->
+        <div class="footer-col">
+          <h3 class="footer-col__title">Horário de funcionamento</h3>
+          <ul class="footer-list footer-list--hours">
+            <li>
+              <span>Segunda a sexta</span>
+              <strong>09h — 19h</strong>
+            </li>
+            <li>
+              <span>Sábado</span>
+              <strong>09h — 14h</strong>
+            </li>
+            <li>
+              <span>Domingo e feriados</span>
+              <strong class="is-closed">Fechado</strong>
+            </li>
+          </ul>
+  
+          <p class="footer-note">
+            Atendimento por agendamento prévio para garantir a exclusividade do
+            seu horário.
+          </p>
+        </div>
+  
+        <!-- Coluna institucional -->
+        <div class="footer-col">
+          <h3 class="footer-col__title">Institucional</h3>
+          <ul class="footer-links">
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#">Sobre a clínica</a></li>
+            <li><a href="#">Resultados</a></li>
+            <li><a href="#faq">Perguntas frequentes</a></li>
+            <li><a href="#">Política de privacidade</a></li>
+            <li><a href="#">Termos de uso</a></li>
+          </ul>
+        </div>
+  
+      </div>
+  
+      <div class="site-footer__bottom">
+        <p>
+          © 2026 Studio Aura · Todos os direitos reservados.
+        </p>
+        <p class="site-footer__legal">
+          Responsável técnica: Dra. Marina Costa · CRBM 12.345<br />
+          Produtos com registro ANVISA · CNPJ 00.000.000/0001-00
+        </p>
+      </div>
+  
+    </div>
+  </footer>
+  <!-- ============================================
+     BOTÃO FLUTUANTE DE AGENDAMENTO (opcional, mas converte MUITO)
+     ============================================ -->
+<button
+type="button"
+class="booking-fab"
+data-open-booking
+aria-label="Abrir formulário de agendamento"
+>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+     stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <rect x="3" y="5" width="18" height="16" rx="3"/>
+  <path d="M3 10h18M8 3v4M16 3v4"/>
+</svg>
+<span class="booking-fab__label">Agendar</span>
+</button>
+
+
+<!-- ============================================
+   MODAL DE AGENDAMENTO
+   ============================================ -->
+<div
+class="booking-modal"
+id="bookingModal"
+role="dialog"
+aria-modal="true"
+aria-labelledby="booking-title"
+aria-hidden="true"
+hidden
+>
+<!-- Backdrop -->
+<div class="booking-modal__backdrop" data-close-booking></div>
+
+<!-- Conteúdo -->
+<div class="booking-modal__panel" role="document">
+
+  <button
+    type="button"
+    class="booking-modal__close"
+    data-close-booking
+    aria-label="Fechar formulário"
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="2" stroke-linecap="round" aria-hidden="true">
+      <path d="M6 6l12 12M18 6L6 18"/>
+    </svg>
+  </button>
+
+  <!-- Cabeçalho -->
+  <header class="booking-modal__header">
+    <span class="section-tag">Agendamento</span>
+    <h2 id="booking-title" class="booking-modal__title">
+      Vamos cuidar da sua pele?
+    </h2>
+    <p class="booking-modal__subtitle">
+      Preencha os dados abaixo — em segundos você é direcionada para o nosso
+      WhatsApp com tudo pronto para confirmar.
+    </p>
+  </header>
+
+  <!-- Formulário -->
+  <form class="booking-form" id="bookingForm" novalidate>
+
+    <!-- Nome -->
+    <div class="form-field">
+      <label for="clientName" class="form-field__label">
+        Nome completo <span aria-hidden="true">*</span>
+      </label>
+      <div class="form-field__control">
+        <svg class="form-field__icon" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+             stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
+        </svg>
+        <input
+          type="text"
+          id="clientName"
+          name="clientName"
+          class="form-field__input"
+          placeholder="Como podemos te chamar?"
+          autocomplete="name"
+          required
+          minlength="3"
+        />
+      </div>
+      <span class="form-field__error" data-error-for="clientName"></span>
+    </div>
+
+    <!-- Procedimento -->
+    <div class="form-field">
+      <label for="procedure" class="form-field__label">
+        Procedimento de interesse <span aria-hidden="true">*</span>
+      </label>
+      <div class="form-field__control">
+        <svg class="form-field__icon" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+             stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3l2.4 6.6L21 12l-6.6 2.4L12 21l-2.4-6.6L3 12l6.6-2.4z"/>
+        </svg>
+        <select
+          id="procedure"
+          name="procedure"
+          class="form-field__input form-field__select"
+          required
+        >
+          <option value="" selected disabled>Escolha uma opção</option>
+          <option value="Harmonização Facial">Harmonização Facial</option>
+          <option value="Skinbooster">Skinbooster</option>
+          <option value="Limpeza de Pele">Limpeza de Pele</option>
+          <option value="Avaliação Geral">Avaliação Geral</option>
+        </select>
+      </div>
+      <span class="form-field__error" data-error-for="procedure"></span>
+    </div>
+
+    <!-- Data -->
+    <div class="form-field">
+      <label for="preferredDate" class="form-field__label">
+        Dia de preferência <span aria-hidden="true">*</span>
+      </label>
+      <div class="form-field__control">
+        <svg class="form-field__icon" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+             stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="16" rx="3"/>
+          <path d="M3 10h18M8 3v4M16 3v4"/>
+        </svg>
+        <input
+          type="date"
+          id="preferredDate"
+          name="preferredDate"
+          class="form-field__input"
+          required
+        />
+      </div>
+      <span class="form-field__error" data-error-for="preferredDate"></span>
+    </div>
+
+    <!-- Período -->
+    <div class="form-field">
+      <span class="form-field__label" id="periodLabel">
+        Período de preferência <span aria-hidden="true">*</span>
+      </span>
+      <div class="period-options" role="radiogroup" aria-labelledby="periodLabel">
+        <label class="period-option">
+          <input type="radio" name="period" value="Manhã" required />
+          <span class="period-option__box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1l2.1-2.1M17 7l2.1-2.1"/>
+            </svg>
+            Manhã
+          </span>
+        </label>
+        <label class="period-option">
+          <input type="radio" name="period" value="Tarde" required />
+          <span class="period-option__box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+            </svg>
+            Tarde
+          </span>
+        </label>
+      </div>
+      <span class="form-field__error" data-error-for="period"></span>
+    </div>
+
+    <!-- Envio -->
+    <button type="submit" class="btn btn--primary booking-form__submit">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="18" height="18">
+        <path d="M20.5 3.5L3.8 10.1c-.9.3-.9 1.6 0 1.9l6.4 2.3 2.3 6.4c.3.9 1.6.9 1.9 0L21 4.5c.3-.8-.5-1.4-1.2-1z"/>
+      </svg>
+      Confirmar agendamento
+    </button>
+
+    <p class="booking-form__privacy">
+      Ao confirmar, você será redirecionada para o WhatsApp com a mensagem
+      pronta. Nenhum dado é armazenado em nosso site.
+    </p>
+
+  </form>
+
+</div>
+</div>
+
+
+<!-- ============================================
+   BOTÕES QUE ABREM O MODAL
+   (adicione data-open-booking em qualquer link/botão seu)
+   ============================================ -->
+<!-- Exemplo:
+<a href="#" class="btn btn--primary" data-open-booking>Agendar avaliação gratuita</a>
+-->
+  <script>
+    document.querySelectorAll('.result-card__compare').forEach((compare) => {
+      const slider = compare.querySelector('.result-card__slider');
+      const after  = compare.querySelector('.result-card__after-wrap');
+      const handle = compare.querySelector('.result-card__handle');
+  
+      const update = (v) => {
+        after.style.width  = v + '%';
+        handle.style.left  = v + '%';
+      };
+  
+      update(slider.value);
+      slider.addEventListener('input', (e) => update(e.target.value));
+    });
+  </script>
+</body>
+</html>
